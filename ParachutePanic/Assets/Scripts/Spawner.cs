@@ -1,8 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+/// <summary>
+/// Custom spawner Component class:
+/// This spawns in game objects positioned randomly.
+/// </summary>
 public class Spawner : MonoBehaviour
 {
+    // 2. Prefab for spawning
     public GameObject prefab;
 
     private List<GameObject> spawnedObjects;
@@ -26,7 +31,8 @@ public class Spawner : MonoBehaviour
             Despawn();
         }
     }
-
+    
+    // 4. Random start position functionality
     private void Spawn()
     {
         GameObject go = Instantiate(prefab);
@@ -35,7 +41,7 @@ public class Spawner : MonoBehaviour
         float y = Random.Range(-10, 10);
         float z = Random.Range(-10, 10);
 
-        go.transform.localPosition = new Vector3(x, y, z);
+        go.transform.localPosition = new Vector3(0, 0, 0);
 
         Rigidbody rb = go.AddComponent<Rigidbody>();
         rb.useGravity = false;
