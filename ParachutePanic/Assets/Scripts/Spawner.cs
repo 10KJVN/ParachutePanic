@@ -22,13 +22,22 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        // Returns true during the frame the user pressed the given mouse button.
         if (Input.GetMouseButtonDown(0))
         {
             Spawn();
         }
+        
+        // Checks if right-click is pressed.
         else if (Input.GetMouseButtonDown(1))
         {
             Despawn();
+        }
+        
+        // middle mouse button being held down.
+        if (Input.GetMouseButton(2))
+        {
+            Spawn();
         }
     }
     

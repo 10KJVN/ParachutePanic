@@ -1,10 +1,18 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// This class visualizes collision points by instantiating prefabs
+/// at the point the collision happens.
+/// </summary>
+
 public class CollisionVisualizer : MonoBehaviour
 {
     public GameObject prefab;
-
+    
+    // TO-DO: Maak een tag aan en geef je eerste prefab die tag... colliden met.. prefab.
+    // TO-DO: Gebruik het spawn on collision Component ook voor je tweede prefab... to crash Unity?
+    
     private void OnCollisionEnter(Collision other)
     {
         GameObject go = prefab;
