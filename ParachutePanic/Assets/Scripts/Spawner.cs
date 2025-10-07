@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
         float y = Random.Range(-10, 10);
         float z = Random.Range(-10, 10);
 
-        go.transform.localPosition = new Vector3(0, 0, 0);
+        go.transform.localPosition = new Vector3(x, y, z);
 
         Rigidbody rb = go.AddComponent<Rigidbody>();
         rb.useGravity = false;
@@ -62,6 +62,7 @@ public class Spawner : MonoBehaviour
 
     public int GetAmountSpawned()
     {
+        //Debug.Log(spawnedObjects.Count);
         return spawnedObjects.Count;
     }
 }
