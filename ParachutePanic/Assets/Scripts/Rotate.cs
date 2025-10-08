@@ -5,9 +5,9 @@ public class Rotate : MonoBehaviour
     void Start()
     {
         Debug.Log("Start");
-        transform.position = Vector3.zero;
-        transform.rotation = Quaternion.Euler(0, 90, 0);
-        transform.localScale = Vector3.one;
+        //transform.position = Vector3.zero;
+        //transform.rotation = Quaternion.Euler(0, 90, 0);
+        //transform.localScale = Vector3.one;
     }
     
     void Update()
@@ -19,6 +19,17 @@ public class Rotate : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             transform.Rotate(0, 100 * Time.deltaTime, 0);
+        }
+
+        // Rotation logic for 2D
+        if (Input.GetKey(KeyCode.Z))
+        {
+            transform.Rotate(0, 0, -100 * Time.deltaTime);
+        }
+        
+        if (Input.GetKey(KeyCode.C))
+        {
+            transform.Rotate(0, 0, 100 * Time.deltaTime);
         }
     }
 }
