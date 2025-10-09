@@ -4,7 +4,7 @@ public class Rotate : MonoBehaviour
 {
     void Start()
     {
-        Debug.Log("Start");
+        //Debug.Log("Start");
         //transform.position = Vector3.zero;
         //transform.rotation = Quaternion.Euler(0, 90, 0);
         //transform.localScale = Vector3.one;

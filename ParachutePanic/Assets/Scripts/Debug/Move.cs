@@ -14,7 +14,7 @@ public class Move : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             rb.AddForce(0, 0, 200);
-            Debug.Log("To the front");
+            //Debug.Log("To the front");
         }
         
         if (Input.GetKeyDown(KeyCode.A))
