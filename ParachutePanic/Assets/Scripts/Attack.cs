@@ -3,6 +3,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public float attackSpeed;
+    public GameObject hitImpactPrefab;
     void Start()
     {
         
@@ -17,6 +18,8 @@ public class Attack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Instantiate(hitImpactPrefab, transform.position, Quaternion.identity);
+            
             // Destroys the GameObject the attack collides with.
             Destroy(collision.gameObject);
             Destroy(gameObject);
