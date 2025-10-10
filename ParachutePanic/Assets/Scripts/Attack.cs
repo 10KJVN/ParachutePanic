@@ -5,11 +5,11 @@ public class Attack : MonoBehaviour
     public float attackSpeed;
     public GameObject hitImpactPrefab;
 
-    [SerializeField] private PointManager pointManager;
+    [SerializeField] private ScoreManager scoreManager;
     void Start()
     {
-        //pointManager = GetComponent<PointManager>();
-        pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
+        //ScoreManager = GetComponent<PointManager>();
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
     void Update()
@@ -25,7 +25,7 @@ public class Attack : MonoBehaviour
             
             // Destroys the GameObject the attack collides with.
             Destroy(collision.gameObject);
-            pointManager.UpdateScore(50);
+            scoreManager.ChangeScore(50);
             Destroy(gameObject);
         }
 
