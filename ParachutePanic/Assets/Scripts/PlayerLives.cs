@@ -1,38 +1,29 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayerLives : MonoBehaviour
 {
-    // In case i might refactor this class too
-    // public int currentLives = ?;
-    // public GameObject gameOverPanel;
-    // public TMP_Text livesText;
-    public ScoreManager scoreManager;
-    public LivesManager livesManager;
-    
-    public int lives = 3;
-    public Image[] livesUI;
     public GameObject hitImpactPrefab;
+    public GameObject gameOverMenu;
+    public ScoreManager scoreManager;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Health Configuration")]
+    [SerializeField] private int lives;
+    [SerializeField] private TMP_Text[] livesUI;
+    
+    private void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.gameObject.tag == "Enemy")
+        // Lose a life if an obstacle hits player
+        if (other.collider.gameObject.tag == "Enemy")
         {
-            Destroy(collision.collider.gameObject);
+            Destroy(other.collider.gameObject);
             Instantiate(hitImpactPrefab, transform.position, quaternion.identity);
             
             lives -= 1;
@@ -49,23 +40,37 @@ public class PlayerLives : MonoBehaviour
             }
             if (lives <= 0)
             {
-                //Destroy(gameObject);
-                livesManager.LoseLife();
+                Destroy(gameObject);
+                LoseLife();
             }
+        }
+
+        if (other.collider.gameObject.tag == "Parachute")
+        {
+            Destroy(other.collider.gameObject);
+            scoreManager.ChangeScore(1);
+        }
+        
+        if (other.collider.gameObject.tag == "PowerUp")
+        {
+            Destroy(other.collider.gameObject);
+            Instantiate(hitImpactPrefab, transform.position, quaternion.identity);
+            scoreManager.ChangeScore(2);
+            lives += 1;
         }
     }
 
-    /*public void LoseLife()
+    private void LoseLife()
     {
-        currentLives -= 1;
-        livesText.text = currentLives.ToString();
-        if (currentLives <= 0)
+        //currentLives -= 1;
+        //livesUI.text = currentLives.ToString();
+        if (lives <= 0)
         {
             Time.timeScale = 0;
-            gameOverPanel.SetActive(true);
+            gameOverMenu.SetActive(true);
             
             // Call the HighScoreUpdate
             scoreManager.HighScoreUpdate();
         }
-    }*/
+    }
 }

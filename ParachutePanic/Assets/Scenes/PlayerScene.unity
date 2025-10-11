@@ -7087,8 +7087,8 @@ GameObject:
   - component: {fileID: 9039439410871829735}
   - component: {fileID: 3118644895148114985}
   - component: {fileID: 9039439410871829736}
-  - component: {fileID: 9039439410871829734}
   - component: {fileID: 9039439410871829737}
+  - component: {fileID: 9039439410871829734}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player

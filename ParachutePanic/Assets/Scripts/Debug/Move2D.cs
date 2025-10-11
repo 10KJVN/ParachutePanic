@@ -35,7 +35,11 @@ public class Move2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForceY(100);
-            Debug.Log("Up!");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            rb.AddForceY(-100);
         }
     }
 }

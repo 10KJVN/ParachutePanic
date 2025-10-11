@@ -2,21 +2,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5;
-    public float hInput;
+    [SerializeField] float moveSpeed = 5;
+    private float hInput;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        // To-do: lerp for possible spawn in sequence
+        transform.position = new Vector3(0, -3, 0);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         hInput = Input.GetAxisRaw("Horizontal");
         
+        // To-do: Make movement snappy
         transform.Translate(Vector2.right * hInput * moveSpeed * Time.deltaTime);
-        
     }
 }

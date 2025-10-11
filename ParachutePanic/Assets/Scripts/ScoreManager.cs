@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     public void ChangeScore(int points)
     {
         currentScore += points;
-        scoreText.text = currentScore.ToString();
+        scoreText.text = currentScore.ToString("Score: " + currentScore);
     }
 
     public void HighScoreUpdate()
@@ -33,8 +33,11 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("SavedHighScore", currentScore);
         }
         
+        // To-do: Getter & Setter for prettier display in UI.
+        //var SavedHighScore;
+        
         // Update our TMP reference
-        finalScoreText.text = currentScore.ToString();
+        finalScoreText.text = currentScore.ToString("FINAL: " + currentScore);
         highScoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString();
     }
 }

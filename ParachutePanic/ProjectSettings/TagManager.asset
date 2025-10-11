@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Boundary
   - Enemy
+  - Parachute
+  - PowerUp
   layers:
   - Default
   - TransparentFX
