@@ -8,6 +8,25 @@ public class Cluster : MonoBehaviour
     
     public float HmoveSpeed;
     public float VmoveSpeed;
+    
+    // Custom init function
+    // Begin params meegeven
+
+    // The awake serves as a Constructor
+    private void Awake()
+    {   
+        // This function gives random starting parametrs
+        // To each cluster initiated to avoid them from being uniform.
+        InitiateCluster();
+    }
+
+    private void InitiateCluster(float height)
+    {
+        var posX = Random.Range(-9, 9);
+        var posY = height * -50;
+        throw new NotImplementedException();
+    }
+
 
     private void Start()
     {
