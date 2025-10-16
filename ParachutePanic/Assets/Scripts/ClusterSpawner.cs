@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
@@ -9,8 +10,11 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class ClusterSpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject clusterPrefab;
+    [SerializeField] private GameObject obstaclePrefab;
     
-    public GameObject clusterPrefab;
+    [SerializeField] private float clusterInterval;
+    [SerializeField] private float obstacleInterval;
     
     private List<GameObject> spawnedClusters;
     private int amountToSpawn;
@@ -32,6 +36,22 @@ public class ClusterSpawner : MonoBehaviour
             //spawnedClusters.Add(new cluster(clusterPrefab));
         }
         GetComponent<Cluster>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(spawnCluster(clusterInterval, clusterPrefab));
+        StartCoroutine(spawnCluster(obstacleInterval, obstaclePrefab));
+
+    }
+
+    private IEnumerator spawnCluster(float interval, GameObject cluster)
+    {
+        yield return new WaitForSeconds(interval);
+        GameObject newCluster = Instantiate(cluster,
+            new Vector2(Random.Range(-9, 9), Random.Range(5, 50) ), Quaternion.identity);
+
+        StartCoroutine(spawnCluster(interval, cluster));
     }
     
 }
