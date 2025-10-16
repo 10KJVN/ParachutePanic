@@ -1,18 +1,30 @@
+using System;
 using UnityEngine;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public TMP_Text scoreText;
+    public TMP_Text HscoreText;
     public int currentScore;
 
     public TMP_Text finalScoreText;
     public TMP_Text highScoreText;
-    
+
+    public void Awake()
+    {
+        DisplayHighScore();
+    }
+
     public void ChangeScore(int points)
     {
         currentScore += points;
         scoreText.text = "Score: " + currentScore.ToString();
+    }
+
+    public void DisplayHighScore()
+    {
+        HscoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString();
     }
 
     public void HighScoreUpdate()

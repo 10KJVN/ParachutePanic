@@ -2343,6 +2343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2044917852886124295}
+  HscoreText: {fileID: 5293213499052457536}
   currentScore: 0
   finalScoreText: {fileID: 5781574495974621211}
   highScoreText: {fileID: 5506047138629714977}
