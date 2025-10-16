@@ -44,7 +44,8 @@ public class PlayerLives : MonoBehaviour
                 LoseLife();
             }
         }
-
+        
+        // The other collider has to COLLIDE with player, not just a trigger
         if (other.collider.gameObject.tag == "Parachute")
         {
             Destroy(other.collider.gameObject);

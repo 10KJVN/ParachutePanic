@@ -4,7 +4,10 @@ using Random = UnityEngine.Random;
 
 public class Cluster : MonoBehaviour
 {
-    public float moveSpeed;
+    public ScoreManager scoreManager;
+    
+    public float HmoveSpeed;
+    public float VmoveSpeed;
 
     private void Start()
     {
@@ -13,7 +16,8 @@ public class Cluster : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.right * HmoveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.down * VmoveSpeed * Time.deltaTime);
         //UpdateClusterPos();
     }
 
@@ -23,7 +27,14 @@ public class Cluster : MonoBehaviour
         if (collision.gameObject.CompareTag("Boundary"))
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
-            moveSpeed *= -1;
+            HmoveSpeed *= -1;
+        }
+        
+        if (collision.gameObject.CompareTag("BoundsOut"))
+        {
+            // Destroys the attack if it goes out of bounds.
+            Destroy(gameObject);
+            scoreManager.ChangeScore(-2);
         }
     }
 }
