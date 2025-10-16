@@ -20,10 +20,15 @@ public class Cluster : MonoBehaviour
         //InitiateCluster();
     }
 
-    private void InitiateCluster(float height)
+    private void InitiateCluster(int height)
     {
+        // Spawn position parameters
         var posX = Random.Range(-9, 9);
         var posY = height * -50;
+        
+        var speedX = Random.Range(7, 16);
+        var speedY = Random.Range(6, 7);
+        
         throw new NotImplementedException();
     }
 
