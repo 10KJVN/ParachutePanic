@@ -17,7 +17,7 @@ public class Cluster : MonoBehaviour
     {   
         // This function gives random starting parametrs
         // To each cluster initiated to avoid them from being uniform.
-        InitiateCluster();
+        //InitiateCluster();
     }
 
     private void InitiateCluster(float height)
