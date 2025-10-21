@@ -226,6 +226,7 @@ MonoBehaviour:
   scoreManager: {fileID: 0}
   HmoveSpeed: 12
   VmoveSpeed: 1
+  bounceSpeed: 6
 --- !u!114 &6233492329061627987
 MonoBehaviour:
   m_ObjectHideFlags: 0

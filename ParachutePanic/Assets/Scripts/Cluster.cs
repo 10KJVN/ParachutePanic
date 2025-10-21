@@ -8,6 +8,7 @@ public class Cluster : MonoBehaviour
     
     public float HmoveSpeed;
     public float VmoveSpeed;
+    public float bounceSpeed;
 
     private int posX;
     private int posY;
@@ -119,7 +120,7 @@ public class Cluster : MonoBehaviour
         posY = CalculatePosition(posY, speedY);
         //speedY = CalculateVelocity(posY, speedY, -10, 10);
 
-        HmoveSpeed += posX * Time.deltaTime;
+        HmoveSpeed += posX * bounceSpeed * Time.deltaTime; // 6 currently 
         VmoveSpeed = posY * Time.deltaTime / 2;
 
         //CheckVisibility();
