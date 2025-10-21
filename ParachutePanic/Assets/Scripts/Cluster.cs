@@ -7,14 +7,16 @@ public class Cluster : MonoBehaviour
     public Rigidbody2D rb;
     
     [Header("Math variables")] // Default values
-    [SerializeField] private float additiveForce = 1f;
+    [SerializeField] private float additiveForce = 1.0f;
+
+    private float rotation = 0.0f;
 
     private void Start()
     {
-        //throw new NotImplementedException();
+        rb = GetComponent<Rigidbody2D>();
     }
-
-    private void Update()
+    
+    private void FixedUpdate()
     {
         rb.AddForceX(additiveForce * Time.deltaTime);
     }
