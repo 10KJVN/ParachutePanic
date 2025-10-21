@@ -271,7 +271,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 15}
+  m_Size: {x: 1, y: 999}
   m_EdgeRadius: 0
 --- !u!61 &301668536
 BoxCollider2D:
@@ -670,7 +670,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 15}
+  m_Size: {x: 1, y: 999}
   m_EdgeRadius: 0
 --- !u!61 &609593544
 BoxCollider2D:
@@ -2358,10 +2358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d59f25bd11a37c49a6ec2a02b8e9045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clusterPrefab: {fileID: 0}
-  obstaclePrefab: {fileID: 0}
-  clusterInterval: 0
-  obstacleInterval: 0
+  clusterPrefab: {fileID: 6924178776640658056, guid: 06504c6848f93ad429c8335ca86be516, type: 3}
+  obstaclePrefab: {fileID: 1796685260116503895, guid: 8630b8042d2349844aa4ca377ef5a4fc, type: 3}
+  clusterInterval: 4
+  obstacleInterval: 12
 --- !u!1 &1959261386
 GameObject:
   m_ObjectHideFlags: 0

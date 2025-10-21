@@ -16,11 +16,10 @@ public class ClusterSpawner : MonoBehaviour
     [SerializeField] private float clusterInterval;
     [SerializeField] private float obstacleInterval;
     
+    //private Cluster cluster;
     private List<GameObject> spawnedClusters;
     private int amountToSpawn;
-
-    private Cluster cluster;
-
+    
     private void Awake()
     {
         if (clusterPrefab == null)
@@ -29,7 +28,7 @@ public class ClusterSpawner : MonoBehaviour
         spawnedClusters = new List<GameObject>();
 
         // 'MonoBehaviour' instances must be instantiated with 'GameObject.AddComponent<T>()' instead of 'new
-        cluster = gameObject.AddComponent<Cluster>();
+        // cluster = gameObject.AddComponent<Cluster>();
         
         for (int t = 0; t <= 10; t = t + 1)
         {
@@ -40,18 +39,24 @@ public class ClusterSpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(spawnCluster(clusterInterval, clusterPrefab));
-        StartCoroutine(spawnCluster(obstacleInterval, obstaclePrefab));
+        StartCoroutine(SpawnCluster(clusterInterval, clusterPrefab));
+        StartCoroutine(SpawnCluster(obstacleInterval, obstaclePrefab));
 
     }
 
-    private IEnumerator spawnCluster(float interval, GameObject cluster)
+    // Recursive function ??
+    private IEnumerator SpawnCluster(float interval, GameObject cluster)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newCluster = Instantiate(cluster,
-            new Vector2(Random.Range(-9, 9), Random.Range(5, 50) ), Quaternion.identity);
+        
+        // Merely the position cluster spawns at
+        var newCluster = Instantiate(cluster, 
+            new Vector2(
+            Random.Range(-8, 8),
+            Random.Range(5, 50)), // To-do * -5 equation
+            Quaternion.identity);
 
-        StartCoroutine(spawnCluster(interval, cluster));
+        StartCoroutine(SpawnCluster(interval, cluster));
     }
     
 }
