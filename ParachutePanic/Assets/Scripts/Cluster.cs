@@ -18,4 +18,9 @@ public class Cluster : MonoBehaviour
     {
         rb.AddForceX(additiveForce * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        additiveForce = -additiveForce; // Flips move direction
+    }
 }
