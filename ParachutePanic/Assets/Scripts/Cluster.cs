@@ -80,7 +80,7 @@ public class Cluster : MonoBehaviour
         return currentPos + velocity;
     }
 
-    int calculateVelocity(int pos, int velocity, int min, int max)
+    int CalculateVelocity(int pos, int velocity, int min, int max)
     {
         if (pos <= min || pos >= max)
         {
@@ -114,12 +114,13 @@ public class Cluster : MonoBehaviour
     private void UpdateClusterPosition()
     {
         posX = CalculatePosition(posX, speedX);
-        speedX = calculateVelocity(posX, speedX, 0, 10);
+        speedX = CalculateVelocity(posX, speedX, -10, 10);
         
         posY = CalculatePosition(posY, speedY);
+        //speedY = CalculateVelocity(posY, speedY, -10, 10);
 
-        HmoveSpeed = posX * Time.deltaTime;
-        VmoveSpeed = posY * Time.deltaTime;
+        HmoveSpeed += posX * Time.deltaTime;
+        VmoveSpeed = posY * Time.deltaTime / 2;
 
         //CheckVisibility();
     }
