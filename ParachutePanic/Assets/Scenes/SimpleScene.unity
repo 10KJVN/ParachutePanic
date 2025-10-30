@@ -147,7 +147,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2124047636}
   m_Father: {fileID: 908782734}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &129271593 stripped
@@ -402,8 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1959261387}
-  HmoveSpeed: 15
-  VmoveSpeed: 2
+  horizontalMoveSpeed: 0
+  verticalMoveSpeed: 0
+  bounceSpeed: 0
 --- !u!50 &593583448
 Rigidbody2D:
   serializedVersion: 5
@@ -844,8 +846,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1959261387}
-  HmoveSpeed: 15
-  VmoveSpeed: 2
+  horizontalMoveSpeed: 0
+  verticalMoveSpeed: 0
+  bounceSpeed: 0
 --- !u!50 &857987187
 Rigidbody2D:
   serializedVersion: 5
@@ -1067,7 +1070,6 @@ Transform:
   - {fileID: 1079026150}
   - {fileID: 1386236620}
   - {fileID: 24540167}
-  - {fileID: 2124047636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &956649692
@@ -1166,8 +1168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1959261387}
-  HmoveSpeed: 0
-  VmoveSpeed: 0
+  horizontalMoveSpeed: 0
+  verticalMoveSpeed: 0
+  bounceSpeed: 0
 --- !u!50 &1023745189
 Rigidbody2D:
   serializedVersion: 5
@@ -1440,8 +1443,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1959261387}
-  HmoveSpeed: 0
-  VmoveSpeed: 0
+  horizontalMoveSpeed: 0
+  verticalMoveSpeed: 0
+  bounceSpeed: 0
 --- !u!50 &1171354402
 Rigidbody2D:
   serializedVersion: 5
@@ -1806,8 +1810,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1959261387}
-  HmoveSpeed: 15
-  VmoveSpeed: 2
+  horizontalMoveSpeed: 0
+  verticalMoveSpeed: 0
+  bounceSpeed: 0
 --- !u!50 &1398780129
 Rigidbody2D:
   serializedVersion: 5
@@ -2007,6 +2012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1426010168}
   - component: {fileID: 1426010169}
+  - component: {fileID: 1426010170}
   m_Layer: 0
   m_Name: BottomBoundOut
   m_TagString: BoundsOut
@@ -2075,6 +2081,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 25, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1426010170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426010167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fea19b122a91d146b19ffe8c57d577b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468107523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,8 +2141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1959261387}
-  HmoveSpeed: 0
-  VmoveSpeed: 0
+  horizontalMoveSpeed: 0
+  verticalMoveSpeed: 0
+  bounceSpeed: 0
 --- !u!50 &1468107526
 Rigidbody2D:
   serializedVersion: 5
@@ -2360,8 +2379,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clusterPrefab: {fileID: 6924178776640658056, guid: 06504c6848f93ad429c8335ca86be516, type: 3}
   obstaclePrefab: {fileID: 1796685260116503895, guid: 8630b8042d2349844aa4ca377ef5a4fc, type: 3}
-  clusterInterval: 4
-  obstacleInterval: 12
+  healPrefab: {fileID: 8351755558054822402, guid: 74a486f958c4f414581a1d326a4a8b7f, type: 3}
+  clusterInterval: 0.75
+  obstacleInterval: 0.5
+  healInterval: 7.5
 --- !u!1 &1959261386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,11 +2412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b785f618163eaf84dab3a7e9764d75ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 2044917852886124295}
-  HscoreText: {fileID: 5293213499052457536}
   currentScore: 0
+  scoreText: {fileID: 2044917852886124295}
+  highScoreText: {fileID: 5293213499052457536}
   finalScoreText: {fileID: 5781574495974621211}
-  highScoreText: {fileID: 5506047138629714977}
+  finalHighScoreText: {fileID: 5506047138629714977}
 --- !u!4 &1959261388
 Transform:
   m_ObjectHideFlags: 0
@@ -2852,7 +2873,7 @@ GameObject:
   - component: {fileID: 6597907947183467595}
   - component: {fileID: 5506047138629714977}
   m_Layer: 5
-  m_Name: HighScoreText
+  m_Name: FinalHighScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3834,6 +3855,10 @@ PrefabInstance:
       propertyPath: attackPrefab
       value: 
       objectReference: {fileID: 2950145379101372401, guid: d676cd2ddcf4132458242a3bdd5d783b, type: 3}
+    - target: {fileID: 2315584037870155013, guid: 3d48df0cc78c4ae478f8002cbb1cc92a, type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2389343706257953316, guid: 3d48df0cc78c4ae478f8002cbb1cc92a, type: 3}
       propertyPath: m_Name
       value: SimplePlayer
@@ -4783,8 +4808,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 908782734}
+    m_TransformParent: {fileID: 24540167}
     m_Modifications:
+    - target: {fileID: 4549199845993215959, guid: 74a486f958c4f414581a1d326a4a8b7f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549199845993215959, guid: 74a486f958c4f414581a1d326a4a8b7f, type: 3}
+      propertyPath: VmoveSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4549199845993215959, guid: 74a486f958c4f414581a1d326a4a8b7f, type: 3}
       propertyPath: scoreManager
       value: 
@@ -4795,7 +4828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5242599522130724139, guid: 74a486f958c4f414581a1d326a4a8b7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 5242599522130724139, guid: 74a486f958c4f414581a1d326a4a8b7f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5349,6 +5382,10 @@ PrefabInstance:
     - target: {fileID: 1796685260116503895, guid: 8630b8042d2349844aa4ca377ef5a4fc, type: 3}
       propertyPath: m_Name
       value: SimpleObstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813125033800776965, guid: 8630b8042d2349844aa4ca377ef5a4fc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7073209328298757102, guid: 8630b8042d2349844aa4ca377ef5a4fc, type: 3}
       propertyPath: m_LocalPosition.x

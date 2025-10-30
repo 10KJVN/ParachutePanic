@@ -224,8 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
-  HmoveSpeed: 10
-  VmoveSpeed: 2
+  horizontalMoveSpeed: 0.4
+  verticalMoveSpeed: 0
+  bounceSpeed: 0
 --- !u!114 &6813125033800776965
 MonoBehaviour:
   m_ObjectHideFlags: 0
