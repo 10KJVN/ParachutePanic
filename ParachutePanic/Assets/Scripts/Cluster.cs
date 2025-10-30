@@ -17,14 +17,16 @@ public class Cluster : MonoBehaviour
     private int speedY;
     
     // Custom init function
-    // Begin params meegeven
+    // Pass begin params
 
     // The awake serves as a Constructor
     private void Awake()
     {   
         // This function gives random starting parametrs
-        // To each cluster initiated to avoid them from being uniform.
+        // To each cluster initiated to avoid them from being bland 'n the same.
         //InitiateCluster();
+        
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
     private void InitiateCluster(int height)
@@ -72,7 +74,7 @@ public class Cluster : MonoBehaviour
         {
             // Destroys the attack if it goes out of bounds.
             Destroy(gameObject);
-            scoreManager.ChangeScore(-2);
+            scoreManager.ChangeScore(-1);
         }
     }
 
@@ -91,27 +93,6 @@ public class Cluster : MonoBehaviour
         return velocity;
     }
 
-    private void CheckVisibility()
-    {
-        if (posY > 8)
-        {
-            Debug.Log("Cluster above FOV");
-        }
-
-        if (posY < -5)
-        {
-            Debug.Log("Cluster missed");
-        }
-    }
-
-    private void CustomMovement()
-    {
-        /*var scale = 50;
-        transform.Translate(posX, posY, scale);*/
-        
-        
-    }
-
     private void UpdateClusterPosition()
     {
         posX = CalculatePosition(posX, speedX);
@@ -122,7 +103,5 @@ public class Cluster : MonoBehaviour
 
         HmoveSpeed += posX * bounceSpeed * Time.deltaTime; // 6 currently 
         VmoveSpeed = posY * Time.deltaTime / 2;
-
-        //CheckVisibility();
     }
 }

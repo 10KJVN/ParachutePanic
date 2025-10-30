@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 5;
+    [SerializeField] 
+    private float moveSpeed = 5;
     private float hInput;
     
     private void Start()

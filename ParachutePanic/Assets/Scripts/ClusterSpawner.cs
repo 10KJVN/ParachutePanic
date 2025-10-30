@@ -12,9 +12,11 @@ public class ClusterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject clusterPrefab;
     [SerializeField] private GameObject obstaclePrefab;
+    [SerializeField] private GameObject healPrefab;
     
     [SerializeField] private float clusterInterval;
     [SerializeField] private float obstacleInterval;
+    [SerializeField] private float healInterval;
     
     //private Cluster cluster;
     private List<GameObject> spawnedClusters;
@@ -41,7 +43,6 @@ public class ClusterSpawner : MonoBehaviour
     {
         StartCoroutine(SpawnCluster(clusterInterval, clusterPrefab));
         StartCoroutine(SpawnCluster(obstacleInterval, obstaclePrefab));
-
     }
 
     // Recursive function ??
