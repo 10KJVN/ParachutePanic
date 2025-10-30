@@ -12,7 +12,6 @@ public class Cluster : MonoBehaviour
 
     private int posX;
     private int posY;
-    
     private int speedX;
     private int speedY;
     
@@ -25,8 +24,6 @@ public class Cluster : MonoBehaviour
         // This function gives random starting parametrs
         // To each cluster initiated to avoid them from being bland 'n the same.
         //InitiateCluster();
-        
-        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
     private void InitiateCluster(int height)
@@ -44,6 +41,7 @@ public class Cluster : MonoBehaviour
 
     private void Start()
     {
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         HmoveSpeed = posX + speedX;
         VmoveSpeed = posY + speedY;
         
@@ -72,9 +70,9 @@ public class Cluster : MonoBehaviour
         
         if (collision.gameObject.CompareTag("BoundsOut"))
         {
-            // Destroys the attack if it goes out of bounds.
-            Destroy(gameObject);
+            // Destroys whatever goes out of bounds.
             scoreManager.ChangeScore(-1);
+            Destroy(gameObject);
         }
     }
 

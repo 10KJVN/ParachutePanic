@@ -21,9 +21,10 @@ public class PlayerLives : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         // Lose a life if an obstacle hits player
-        if (other.collider.gameObject.tag == "Enemy")
+        if (other.collider.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.collider.gameObject);
+            scoreManager.ChangeScore(-2);
             Instantiate(hitImpactPrefab, transform.position, quaternion.identity);
             
             lives -= 1;
@@ -46,13 +47,13 @@ public class PlayerLives : MonoBehaviour
         }
         
         // The other collider has to COLLIDE with player, not just a trigger
-        if (other.collider.gameObject.tag == "Parachute")
+        if (other.collider.gameObject.CompareTag("Parachute"))
         {
             Destroy(other.collider.gameObject);
-            scoreManager.ChangeScore(1);
+            scoreManager.ChangeScore(3);
         }
         
-        if (other.collider.gameObject.tag == "PowerUp")
+        if (other.collider.gameObject.CompareTag("PowerUp"))
         {
             Destroy(other.collider.gameObject);
             Instantiate(hitImpactPrefab, transform.position, quaternion.identity);
