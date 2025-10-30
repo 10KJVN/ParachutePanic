@@ -1,13 +1,15 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Cluster : MonoBehaviour
 {
     public ScoreManager scoreManager;
     
-    public float HmoveSpeed;
-    public float VmoveSpeed;
+    // Renamed for clarity based off Peer review feedback.
+    public float horizontalMoveSpeed;
+    public float verticalMoveSpeed;
     public float bounceSpeed;
 
     private int posX;
@@ -42,8 +44,8 @@ public class Cluster : MonoBehaviour
     private void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
-        HmoveSpeed = posX + speedX;
-        VmoveSpeed = posY + speedY;
+        horizontalMoveSpeed = posX + speedX;
+        verticalMoveSpeed = posY + speedY;
         
         for (int t = 0; t <= 10; t += 1)
         {
@@ -54,8 +56,8 @@ public class Cluster : MonoBehaviour
     private void Update()
     {
         //UpdateClusterPosition();
-        transform.Translate(Vector2.right * HmoveSpeed * Time.deltaTime);
-        transform.Translate(Vector2.down * VmoveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.right * horizontalMoveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.down * verticalMoveSpeed * Time.deltaTime);
         UpdateClusterPosition();
     }
 
@@ -65,7 +67,7 @@ public class Cluster : MonoBehaviour
         if (collision.gameObject.CompareTag("Boundary"))
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
-            HmoveSpeed *= -1;
+            horizontalMoveSpeed *= -1;
         }
         
         if (collision.gameObject.CompareTag("BoundsOut"))
@@ -74,6 +76,9 @@ public class Cluster : MonoBehaviour
             scoreManager.ChangeScore(-1);
             Destroy(gameObject);
         }
+        
+        // I want If Enemy missed player, score +2
+        // Don't know how so -> BottomBound.cs
     }
 
     int CalculatePosition(int currentPos, int velocity)
@@ -99,7 +104,7 @@ public class Cluster : MonoBehaviour
         posY = CalculatePosition(posY, speedY);
         //speedY = CalculateVelocity(posY, speedY, -10, 10);
 
-        HmoveSpeed += posX * bounceSpeed * Time.deltaTime; // 6 currently 
-        VmoveSpeed = posY * Time.deltaTime / 2;
+        horizontalMoveSpeed += posX * bounceSpeed * Time.deltaTime; // 6 currently 
+        verticalMoveSpeed = posY * Time.deltaTime / 2;
     }
 }
