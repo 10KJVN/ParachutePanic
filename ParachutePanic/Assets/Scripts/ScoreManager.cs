@@ -4,13 +4,12 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TMP_Text scoreText;
-    public TMP_Text HscoreText;
     public int currentScore;
-
-    public TMP_Text finalScoreText;
+    public TMP_Text scoreText;
     public TMP_Text highScoreText;
-
+    public TMP_Text finalScoreText;
+    public TMP_Text finalHighScoreText;
+    
     public void Awake()
     {
         DisplayHighScore();
@@ -24,7 +23,7 @@ public class ScoreManager : MonoBehaviour
 
     public void DisplayHighScore()
     {
-        HscoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString();
+        highScoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString();
     }
 
     public void HighScoreUpdate()
@@ -45,11 +44,8 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("SavedHighScore", currentScore);
         }
         
-        // To-do: Getter & Setter for prettier display in UI.
-        //var SavedHighScore;
-        
         // Update our TMP reference
         finalScoreText.text = "FINAL: " + currentScore.ToString();
-        highScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("SavedHighScore").ToString();
+        finalHighScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("SavedHighScore").ToString();
     }
 }
