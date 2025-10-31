@@ -106,7 +106,7 @@ TextureImporter:
         width: 240
         height: 161
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -115,6 +115,29 @@ TextureImporter:
       bones: []
       spriteID: 34a5fde59daca4a498ae3ca0fbab8f5e
       internalID: -1967377700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Game & Watch Gallery 4 _ Game & Watch Gallery Advance
+        - Museum Games - Parachute_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 324
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc7fbcd00cf543f4d9605e5805dc1b63
+      internalID: -1745330323
       vertices: []
       indices: 
       edges: []
@@ -134,6 +157,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Game Boy Advance - Game & Watch Gallery 4 _ Game & Watch Gallery Advance - Museum Games - Parachute_0: -1967377700
+      Game Boy Advance - Game & Watch Gallery 4 _ Game & Watch Gallery Advance - Museum Games - Parachute_1: -1745330323
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
