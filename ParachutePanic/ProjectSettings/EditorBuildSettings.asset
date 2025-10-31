@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a7f5a1c0050ad2b49bc3b3cc31762a4e
   - enabled: 1
+    path: Assets/Scenes/BetterScene.unity
+    guid: 3f65312de6bd2164ab1fb507b49b31ea
+  - enabled: 0
     path: Assets/Scenes/SimpleScene.unity
     guid: 0ded3730cc3f3994ab7d529718d9cd54
   - enabled: 0
