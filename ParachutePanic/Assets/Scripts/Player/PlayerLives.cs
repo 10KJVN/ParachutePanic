@@ -11,6 +11,7 @@ using TMPro;
 public class PlayerLives : MonoBehaviour
 {
     public GameObject hitImpactPrefab;
+    public GameObject healImpactPrefab;
     public GameObject gameOverMenu;
     public ScoreManager scoreManager;
     
@@ -61,7 +62,7 @@ public class PlayerLives : MonoBehaviour
         if (other.collider.gameObject.CompareTag("PowerUp"))
         {
             Destroy(other.collider.gameObject);
-            Instantiate(hitImpactPrefab, transform.position, quaternion.identity);
+            Instantiate(healImpactPrefab, transform.position, quaternion.identity);
             scoreManager.ChangeScore(2);
             lives += 1;
         }
