@@ -36,8 +36,8 @@ public class Cluster : MonoBehaviour
         speedX = Random.Range(7, 16);
         speedY = Random.Range(6, 7);
         
-        Debug.Log("Position + " + posX + "Height: " + posY);
-        Debug.Log("Speed: " + speedX + speedY);
+        //Debug.Log("Position + " + posX + "Height: " + posY);
+        //Debug.Log("Speed: " + speedX + speedY);
     }
 
 

@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 440176030}
   - component: {fileID: 440176029}
+  - component: {fileID: 440176031}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -148,7 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b632cca75a7c55248ba5296ae224d1be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: SimpleScene
+  sceneName: SimpleScene
+  currentSceneName: 
 --- !u!4 &440176030
 Transform:
   m_ObjectHideFlags: 0
@@ -164,6 +166,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440176031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440176028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60dad31cebab4904181d89b300691b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priorityButton: {fileID: 0}
+  secondaryButton: {fileID: 0}
 --- !u!1 &1218669922
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 5826957541187581957}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1218669925
