@@ -43,6 +43,7 @@ public class ClusterSpawner : MonoBehaviour
     {
         StartCoroutine(SpawnCluster(clusterInterval, clusterPrefab));
         StartCoroutine(SpawnCluster(obstacleInterval, obstaclePrefab));
+        StartCoroutine(SpawnCluster(healInterval, healPrefab));
     }
 
     // Recursive function ??
@@ -54,7 +55,7 @@ public class ClusterSpawner : MonoBehaviour
         var newCluster = Instantiate(cluster, 
             new Vector2(
             Random.Range(-8, 8),
-            Random.Range(5, 50)), // To-do * -5 equation
+            Random.Range(8, 80)), // To-do * -5 equation
             Quaternion.identity);
 
         StartCoroutine(SpawnCluster(interval, cluster));
