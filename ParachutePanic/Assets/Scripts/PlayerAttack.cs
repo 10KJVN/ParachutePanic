@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// This class tracks the player's input required
+/// To perform an attack or similar action to that.
+/// </summary>
+
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject attackPrefab;

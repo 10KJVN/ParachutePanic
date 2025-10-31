@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// This class is the Attack itself.
+/// Whatever the attack should be and do is defined here.
+/// </summary>
+
 public class Attack : MonoBehaviour
 {
     public float attackSpeed;

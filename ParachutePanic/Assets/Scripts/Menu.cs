@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// This class handles menu navigation w/ controller support.
+/// This goes for Pausing/Unpausing, and the GameOverMenu specifically.
+/// </summary>
+
 public class Menu : MonoBehaviour
 {
     public GameObject pauseMenu, goMenu; // go = GameOver abbreviated

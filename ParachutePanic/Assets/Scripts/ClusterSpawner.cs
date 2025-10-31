@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 /// <summary>
 /// Custom spawner Component class:
-/// This spawns in game objects positioned randomly.
+/// This spawns in (cluster) game objects positioned randomly.
 /// </summary>
 public class ClusterSpawner : MonoBehaviour
 {

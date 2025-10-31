@@ -1,6 +1,11 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Old method I tried to manage player lifes,
+/// but I found it a hassle to use so i -> PlayerLives.cs
+/// </summary>
+
 public class LivesManager : MonoBehaviour
 {
     

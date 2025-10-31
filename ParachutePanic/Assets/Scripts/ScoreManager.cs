@@ -2,6 +2,12 @@ using System;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This class manages the Score UIs and displays them.
+/// ChangeScore(points) is a reusable function that allows for multiple classes
+/// or cases to either increase or decrease scores assigned e.g. -1 or 2 (for plus).
+/// </summary>
+
 public class ScoreManager : MonoBehaviour
 {
     public int currentScore;

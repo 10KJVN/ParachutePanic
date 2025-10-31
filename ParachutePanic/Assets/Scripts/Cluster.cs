@@ -3,6 +3,12 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// This class handles the movement behaviour of all clusters
+/// Parachutes, Obstacles, Heals you name it.
+/// It initiates these with randomized speed values as well.
+/// </summary>
+
 public class Cluster : MonoBehaviour
 {
     public ScoreManager scoreManager;

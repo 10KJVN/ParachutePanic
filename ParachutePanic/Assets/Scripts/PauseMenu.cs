@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// Old class used to call PauseGame
+/// Currently replaced by Menu.cs
+/// </summary>
+
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pausePanel;

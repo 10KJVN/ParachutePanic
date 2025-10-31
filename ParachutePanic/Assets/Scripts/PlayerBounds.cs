@@ -1,5 +1,11 @@
 using UnityEngine;
 
+/// <summary>
+/// This class ensures the player can't go out of screen bounds.
+/// It measures the objectWidth of a SpriteRenderer and calculates
+/// The screen bounds based off the camera's Width, Height.
+/// </summary>
+
 public class PlayerBounds : MonoBehaviour
 {
     private Vector2 screenBounds;

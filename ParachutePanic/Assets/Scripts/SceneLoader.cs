@@ -2,6 +2,12 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class as the name suggests is able to
+/// 1. Load a scene by configuring its name in the inspector.
+/// 2. Reload the current scene, which automatically gets the scene name.
+/// </summary>
+
 public class SceneLoader : MonoBehaviour
 {
     public string sceneName;
