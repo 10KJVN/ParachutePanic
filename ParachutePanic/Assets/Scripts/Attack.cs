@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour
             
             // Destroys the GameObject the attack collides with.
             Destroy(collision.gameObject);
-            scoreManager.ChangeScore(50);
+            scoreManager.ChangeScore(10);
             Destroy(gameObject);
         }
 
