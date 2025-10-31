@@ -3,6 +3,10 @@ using Unity.Mathematics;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Kind of a PlayerManager class:
+/// Manages life- and score gained on colliding with player
+/// </summary>
 public class PlayerLives : MonoBehaviour
 {
     public GameObject hitImpactPrefab;

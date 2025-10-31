@@ -5,15 +5,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject pausePanel;
     
     private bool isPaused;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") || Input.GetKeyDown(KeyCode.P))
         {
             if (isPaused)
             {
@@ -26,7 +22,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void PauseGame()
+    private void PauseGame()
     {
         Time.timeScale = 0;
         pausePanel.SetActive(true);

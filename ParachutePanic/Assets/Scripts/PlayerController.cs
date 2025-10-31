@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] 
     private float moveSpeed = 5;
-    private float hInput;
+    private float horizontalInput;
     
     private void Start()
     {
@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        hInput = Input.GetAxisRaw("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         
         // To-do: Make movement snappy
-        transform.Translate(Vector2.right * hInput * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.right * horizontalInput * moveSpeed * Time.deltaTime);
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
+
 /// <summary>
-///
+/// Hardcoded solution to score +2 when missing an Obstacle
 /// </summary>
 public class BottomBound : MonoBehaviour
 {
