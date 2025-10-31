@@ -7,17 +7,19 @@ using Random = UnityEngine.Random;
 /// This class handles the movement behaviour of all clusters
 /// Parachutes, Obstacles, Heals you name it.
 /// It initiates these with randomized speed values as well.
+/// BounceSpeed is the multiplying factor of the HorizontalMoveSpeed.
 /// </summary>
 
 public class Cluster : MonoBehaviour
 {
-    public ScoreManager scoreManager;
-    
-    // Renamed for clarity based off Peer review feedback.
-    public float horizontalMoveSpeed;
-    public float verticalMoveSpeed;
+    [Header("Movement Variable")]
     public float bounceSpeed;
-
+    
+    [SerializeField] private ScoreManager scoreManager;
+    
+    // Renamed for clarity based off Peer review feedback./
+    private float horizontalMoveSpeed;
+    private float verticalMoveSpeed;
     private int posX;
     private int posY;
     private int speedX;
@@ -110,7 +112,8 @@ public class Cluster : MonoBehaviour
         posY = CalculatePosition(posY, speedY);
         //speedY = CalculateVelocity(posY, speedY, -10, 10);
 
-        horizontalMoveSpeed += posX * bounceSpeed * Time.deltaTime; // 6 currently 
+        // 6 bounceSpeed is overkill, recommend to keep under 1.
+        horizontalMoveSpeed += posX * bounceSpeed * Time.deltaTime;
         verticalMoveSpeed = posY * Time.deltaTime / 2;
     }
 }
