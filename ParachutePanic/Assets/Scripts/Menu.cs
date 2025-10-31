@@ -3,12 +3,8 @@ using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject pauseMenu, optionsMenu;
-    public GameObject pauseFirstButton, optionsFirstButton, optionsSecondButton;
-    void Start()
-    {
-        
-    }
+    public GameObject pauseMenu, goMenu; // go = GameOver abbreviated
+    public GameObject pauseFirstButton, goFirstButton, goSecondButton;
 
     void Update()
     {
@@ -16,6 +12,14 @@ public class Menu : MonoBehaviour
         {
             PauseUnpause();
         }
+        
+        // On a gamepad, press equivalent of X on a playstation controller
+        // Once that input has been recognized, selects UI.
+        if (Input.GetButtonDown("Cancel"))
+        {
+            GameOverResume();
+        }
+        
     }
 
     public void PauseUnpause()
@@ -34,7 +38,20 @@ public class Menu : MonoBehaviour
         {
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
-            //optionsMenu.SetActive(false);
         }
+    }
+
+    public void GameOverResume()
+    {
+        if (!goMenu.activeInHierarchy) return;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(goFirstButton);
+    }
+
+    public void BackToMainMenu()
+    {
+        if (!goMenu.activeInHierarchy) return;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(goSecondButton);
     }
 }
