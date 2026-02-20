@@ -672,10 +672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b86cdd60ad16f4daa9a318d510b174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1959261387}
-  horizontalMoveSpeed: 0
-  verticalMoveSpeed: 0
   bounceSpeed: 0
+  scoreManager: {fileID: 1959261387}
 --- !u!50 &593583448
 Rigidbody2D:
   serializedVersion: 5
@@ -1339,10 +1337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b86cdd60ad16f4daa9a318d510b174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1959261387}
-  horizontalMoveSpeed: 0
-  verticalMoveSpeed: 0
   bounceSpeed: 0
+  scoreManager: {fileID: 1959261387}
 --- !u!50 &857987187
 Rigidbody2D:
   serializedVersion: 5
@@ -1661,10 +1657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b86cdd60ad16f4daa9a318d510b174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1959261387}
-  horizontalMoveSpeed: 0
-  verticalMoveSpeed: 0
   bounceSpeed: 0
+  scoreManager: {fileID: 1959261387}
 --- !u!50 &1023745189
 Rigidbody2D:
   serializedVersion: 5
@@ -2198,7 +2192,7 @@ GameObject:
   - component: {fileID: 1079026150}
   m_Layer: 0
   m_Name: DamagingObjects
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2346,10 +2340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b86cdd60ad16f4daa9a318d510b174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1959261387}
-  horizontalMoveSpeed: 0
-  verticalMoveSpeed: 0
   bounceSpeed: 0
+  scoreManager: {fileID: 1959261387}
 --- !u!50 &1171354402
 Rigidbody2D:
   serializedVersion: 5
@@ -2713,10 +2705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b86cdd60ad16f4daa9a318d510b174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1959261387}
-  horizontalMoveSpeed: 0
-  verticalMoveSpeed: 0
   bounceSpeed: 0
+  scoreManager: {fileID: 1959261387}
 --- !u!50 &1398780129
 Rigidbody2D:
   serializedVersion: 5
@@ -3044,10 +3034,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b86cdd60ad16f4daa9a318d510b174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1959261387}
-  horizontalMoveSpeed: 0
-  verticalMoveSpeed: 0
   bounceSpeed: 0
+  scoreManager: {fileID: 1959261387}
 --- !u!50 &1468107526
 Rigidbody2D:
   serializedVersion: 5
@@ -5537,10 +5525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b86cdd60ad16f4daa9a318d510b174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1959261387}
-  horizontalMoveSpeed: 0
-  verticalMoveSpeed: 0.5
   bounceSpeed: 0
+  scoreManager: {fileID: 1959261387}
 --- !u!222 &8488385690062162763
 CanvasRenderer:
   m_ObjectHideFlags: 0
