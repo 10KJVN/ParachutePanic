@@ -8,19 +8,20 @@ using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject pauseMenu, goMenu; // go = GameOver abbreviated
-    public GameObject pauseFirstButton, goFirstButton, goSecondButton;
+    public GameObject pauseMenu;
+    public GameObject gameOverMenu;
+    public GameObject pauseFirstButton;
+    public GameObject goFirstButton;
+    public GameObject goSecondButton;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Fire3"))
+        if ( Input.GetKeyDown( KeyCode.P ) || Input.GetButtonDown( "Fire3" ) )
         {
             PauseUnpause();
         }
         
-        // On a gamepad, press equivalent of X on a playstation controller
-        // Once that input has been recognized, selects UI.
-        if (Input.GetButtonDown("Cancel"))
+        if ( Input.GetButtonDown( "Cancel" ) )
         {
             GameOverResume();
         }
@@ -29,34 +30,32 @@ public class Menu : MonoBehaviour
 
     public void PauseUnpause()
     {
-        if (!pauseMenu.activeInHierarchy)
+        if ( !pauseMenu.activeInHierarchy )
         {
-            pauseMenu.SetActive(true);
+            pauseMenu.SetActive( true );
             Time.timeScale = 0f;
             
-            // Clear selected object
-            EventSystem.current.SetSelectedGameObject(null);
-            // Set a new selected object
-            EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+            EventSystem.current.SetSelectedGameObject( null );
+            EventSystem.current.SetSelectedGameObject( pauseFirstButton );
         }
         else
         {
-            pauseMenu.SetActive(false);
+            pauseMenu.SetActive( false );
             Time.timeScale = 1f;
         }
     }
 
     public void GameOverResume()
     {
-        if (!goMenu.activeInHierarchy) return;
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(goFirstButton);
+        if ( !gameOverMenu.activeInHierarchy ) return;
+        EventSystem.current.SetSelectedGameObject( null );
+        EventSystem.current.SetSelectedGameObject( goFirstButton );
     }
 
     public void BackToMainMenu()
     {
-        if (!goMenu.activeInHierarchy) return;
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(goSecondButton);
+        if ( !gameOverMenu.activeInHierarchy ) return;
+        EventSystem.current.SetSelectedGameObject( null );
+        EventSystem.current.SetSelectedGameObject( goSecondButton );
     }
 }
