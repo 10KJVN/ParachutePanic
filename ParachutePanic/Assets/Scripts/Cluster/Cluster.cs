@@ -1,10 +1,9 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 /// <summary>
 /// This class handles the movement behaviour of all clusters
 /// Parachutes, Obstacles, Heals you name it.
-/// It initiates these with randomized speed values as well.
+/// It initiates these with randomized speed values as well.    
 /// BounceSpeed is the multiplying factor of the HorizontalMoveSpeed.
 /// 
 /// TO-DO: Less Magic numbers in InitCluster function.

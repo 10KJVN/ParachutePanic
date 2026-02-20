@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
-using Random = UnityEngine.Random;
 
 /// <summary>
 /// Custom spawner Component class:
 /// This spawns in (cluster) game objects positioned randomly.
 /// </summary>
+
 public class ClusterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject clusterPrefab;
@@ -17,48 +16,48 @@ public class ClusterSpawner : MonoBehaviour
     [SerializeField] private float clusterInterval;
     [SerializeField] private float obstacleInterval;
     [SerializeField] private float healInterval;
-    
-    //private Cluster cluster;
+
     private List<GameObject> spawnedClusters;
     private int amountToSpawn;
-    
+    private int horizontalMinX;
+    private int horizontalMaxX;
+    private int verticalMinY;
+    private int verticalMaxY;
+
     private void Awake()
     {
-        if (clusterPrefab == null)
-            Debug.LogWarning("Prefab was null");
+        horizontalMinX = -8;
+        horizontalMaxX = 8;
+        verticalMinY = 8;
+        verticalMaxY = 80;
+
+        if ( clusterPrefab == null )
+            Debug.LogWarning( "Prefab was null" );
 
         spawnedClusters = new List<GameObject>();
 
-        // 'MonoBehaviour' instances must be instantiated with 'GameObject.AddComponent<T>()' instead of 'new
-        // cluster = gameObject.AddComponent<Cluster>();
         
-        for (int t = 0; t <= 10; t = t + 1)
-        {
-            //spawnedClusters.Add(new cluster(clusterPrefab));
-        }
         GetComponent<Cluster>();
     }
 
     private void Start()
     {
-        StartCoroutine(SpawnCluster(clusterInterval, clusterPrefab));
-        StartCoroutine(SpawnCluster(obstacleInterval, obstaclePrefab));
-        StartCoroutine(SpawnCluster(healInterval, healPrefab));
+        StartCoroutine( SpawnCluster ( clusterInterval, clusterPrefab ));
+        StartCoroutine( SpawnCluster ( obstacleInterval, obstaclePrefab ));
+        StartCoroutine( SpawnCluster ( healInterval, healPrefab ));
     }
 
-    // Recursive function ??
-    private IEnumerator SpawnCluster(float interval, GameObject cluster)
+    private IEnumerator SpawnCluster( float interval, GameObject cluster )
     {
         yield return new WaitForSeconds(interval);
         
-        // Merely the position cluster spawns at
         var newCluster = Instantiate(cluster, 
             new Vector2(
-            Random.Range(-8, 8),
-            Random.Range(8, 80)), // To-do * -5 equation
+            Random.Range( horizontalMinX, horizontalMaxX ),
+            Random.Range( verticalMinY, verticalMaxY )), // To-do * -5 equation
             Quaternion.identity);
 
-        StartCoroutine(SpawnCluster(interval, cluster));
+        StartCoroutine( SpawnCluster ( interval, cluster ));
     }
     
 }
