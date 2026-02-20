@@ -25,11 +25,21 @@ public class Cluster : MonoBehaviour
 
     private void InitiateCluster( int height )
     {
-        posX = Random.Range( -9, 9 );
-        posY = height * -5;
+        var heightVariation = -5;
+        var minimumHorizontalPosition = -9;
+        var maximumHorizontalPosition = 9;
+
+        var minimumHorizontalSpeed = 7;
+        var maximumHorizontalSpeed = 16;
+        var minimumVerticalSpeed = 6;
+        var maximumVerticalSpeed = 7;
+
+
+        posX = Random.Range( minimumHorizontalPosition, maximumHorizontalPosition );
+        posY = height * heightVariation;
         
-        speedX = Random.Range( 7, 16 );
-        speedY = Random.Range( 6, 7 );
+        speedX = Random.Range( minimumHorizontalSpeed, maximumHorizontalSpeed );
+        speedY = Random.Range( minimumVerticalSpeed, maximumVerticalSpeed );
     }
 
 
@@ -87,12 +97,16 @@ public class Cluster : MonoBehaviour
 
     private void UpdateClusterPosition()
     {
+        var min = -10;
+        var max = 10;
+        var half = 2;
+
         posX = CalculatePosition( posX, speedX );
-        speedX = CalculateVelocity( posX, speedX, -10, 10 );
+        speedX = CalculateVelocity( posX, speedX, min, max );
         
         posY = CalculatePosition( posY, speedY );
 
         horizontalMoveSpeed += posX * bounceSpeed * Time.deltaTime;
-        verticalMoveSpeed = posY * Time.deltaTime / 2;
+        verticalMoveSpeed = posY * Time.deltaTime / half;
     }
 }
