@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1092675413}
-  goMenu: {fileID: 4217918134160833774}
+  gameOverMenu: {fileID: 7176883356103904281}
   pauseFirstButton: {fileID: 1035244109}
   goFirstButton: {fileID: 1194918591644127748}
   goSecondButton: {fileID: 713876699}
@@ -3222,7 +3222,6 @@ MonoBehaviour:
   healImpactPrefab: {fileID: 763895637564211867, guid: 6ff32f6fd24eec84ea350cd713d7cc82, type: 3}
   gameOverMenu: {fileID: 4217918134160833774}
   scoreManager: {fileID: 1959261387}
-  damageSFX: {fileID: 8300000, guid: 1bb33f9208bde1441a41752897c192f1, type: 3}
   lives: 3
   livesUI:
   - {fileID: 4230767516443017243}
