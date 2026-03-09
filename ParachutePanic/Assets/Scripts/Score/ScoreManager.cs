@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 /// <summary>
@@ -15,6 +16,10 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text highScoreText;
     public TMP_Text finalScoreText;
     public TMP_Text finalHighScoreText;
+
+    public UnityEvent <string, int> submitScoreEvent;
+    [SerializeField] private TextMeshProUGUI inputScore;
+    [SerializeField] private TMP_InputField inputName;
     
     public void Awake()
     {
@@ -25,6 +30,11 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore += points;
         scoreText.text = "Score: " + currentScore;
+    }
+
+    public void SubmitScore()
+    {
+        submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
     }
 
     private void DisplayHighScore()

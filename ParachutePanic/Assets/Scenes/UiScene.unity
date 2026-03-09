@@ -5147,7 +5147,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1366862909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1959261387}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: SubmitScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1366862909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6681,8 +6693,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3344f5f8d4f166c4fa67c344bb66e235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  names: []
-  scores: []
+  names:
+  - {fileID: 1153458978}
+  - {fileID: 1708510868}
+  - {fileID: 688876057}
+  - {fileID: 2139145289}
+  - {fileID: 1717104015}
+  - {fileID: 493502341}
+  - {fileID: 261830746}
+  - {fileID: 262331511}
+  - {fileID: 499957949}
+  - {fileID: 2123206095}
+  scores:
+  - {fileID: 1015307120}
+  - {fileID: 209233303}
+  - {fileID: 1942001694}
+  - {fileID: 1520446790}
+  - {fileID: 68590425}
+  - {fileID: 1705204871}
+  - {fileID: 942817133}
+  - {fileID: 727627489}
+  - {fileID: 468666219}
+  - {fileID: 201992386}
 --- !u!4 &1945271592
 Transform:
   m_ObjectHideFlags: 0
@@ -6732,6 +6764,11 @@ MonoBehaviour:
   highScoreText: {fileID: 5293213499052457536}
   finalScoreText: {fileID: 5781574495974621211}
   finalHighScoreText: {fileID: 5506047138629714977}
+  submitScoreEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  inputScore: {fileID: 2044917852886124295}
+  inputName: {fileID: 132285374}
 --- !u!4 &1959261388
 Transform:
   m_ObjectHideFlags: 0

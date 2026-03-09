@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
@@ -7,13 +8,20 @@ public class Leaderboard : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> names;
     [SerializeField] private List<TextMeshProUGUI> scores;
 
-    public void GetLeaderboard()
+    private void Start()
     {
-        // Loop or iterate over the amount of names in List "names" 
-        // Leaderboard ref? . GetLeaderboard ( (message) => { for (int i = 0; i < names.Count; ++i) } )
+        throw new NotImplementedException();
+        // GetLeaderboard();
     }
 
-    public void SetLeaderboard(string username, int score)
+    public void GetLeaderboard()
+    {
+        // int loopLength = (message.Length < names.Count) ? message.Length : names.Count;
+        // Loop or iterate over the amount of names in List "names" 
+        // Leaderboard ref? . GetLeaderboard ( (message) => { for (int i = 0; i < loopLength; ++i) } )
+    }
+
+    public void SetLeaderboardEntry(string username, int score)
     {
         // Leaderboard ref
         // Assign new entry by giving username and score arguments
