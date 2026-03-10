@@ -6,16 +6,25 @@ using UnityEngine;
 
 public static class FileHandler
 {
-    public static void SaveToJSON<T> (List<T> toSave, string filename)
+    public static void SaveToJSON<T>(List<T> toSave, string filename)
     {
         Debug.Log(GetPath(filename));
         string content = JsonHelper.ToJson<T>(toSave.ToArray());
         WriteFile(GetPath(filename), content); // Only handles direct file input.
     }
 
-    public static void ReadFromJSON()
+    public static List<T> ReadFromJSON<T>(string filename)
     {
+        string content = ReadFile(GetPath(filename));
 
+        if (string.IsNullOrEmpty(content) || content == "{}")
+        { 
+            return new List<T>();
+        }
+
+        List<T> res = JsonHelper.FromJson<T>(content).ToList();
+
+        return res; 
     }    
 
     private static string GetPath(string filename)
@@ -33,8 +42,16 @@ public static class FileHandler
         }
     }
 
-    private static string ReadFile()
+    private static string ReadFile(string path)
     {
+        if (File.Exists(path))
+        {
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string content = reader.ReadToEnd();
+                return content;
+            }
+        }
         return "";
     }
 }
