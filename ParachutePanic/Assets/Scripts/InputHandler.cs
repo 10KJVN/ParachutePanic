@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] InputField nameInput;
-    [SerializeField] FileHandler fileHandler;
+    [SerializeField] string filename;
 
     List<InputEntry> entries = new List<InputEntry>();
 
@@ -14,5 +14,7 @@ public class InputHandler : MonoBehaviour
         // Create a new object and set name and points via the ctor.
         entries.Add(new InputEntry(nameInput.text, Random.Range(0, 100)));
         nameInput.text = "";
+
+        FileHandler.SaveToJSON<InputEntry> (entries, filename);
     }
 }

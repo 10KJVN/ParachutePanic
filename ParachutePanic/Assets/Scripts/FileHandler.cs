@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ public static class FileHandler
 {
     public static void SaveToJSON<T> (List<T> toSave, string filename)
     {
-        string content = JsonHelper.ToJson<T>(toSave.ToArray()  );
+        Debug.Log(GetPath(filename));
+        string content = JsonHelper.ToJson<T>(toSave.ToArray());
         WriteFile(GetPath(filename), content); // Only handles direct file input.
     }
 
