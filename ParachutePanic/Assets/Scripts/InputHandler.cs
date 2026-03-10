@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] InputField nameInput;
+    [SerializeField] FileHandler fileHandler;
 
     List<InputEntry> entries = new List<InputEntry>();
 
