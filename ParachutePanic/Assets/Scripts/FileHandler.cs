@@ -5,23 +5,23 @@ using UnityEngine;
 
 public static class FileHandler
 {
-    public void SaveToJSON<T> (List<T> toSave, string filename)
+    public static void SaveToJSON<T> (List<T> toSave, string filename)
     {
         string content = JsonHelper.ToJson<T>(toSave.ToArray()  );
         WriteFile(GetPath(filename), content); // Only handles direct file input.
     }
 
-    public void ReadFromJSON()
+    public static void ReadFromJSON()
     {
 
     }    
 
-    private string GetPath(string filename)
+    private static string GetPath(string filename)
     {
         return Application.persistentDataPath + "/" + filename;
     }
 
-    private void WriteFile(string path, string content)
+    private static void WriteFile(string path, string content)
     {
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
@@ -31,7 +31,7 @@ public static class FileHandler
         }
     }
 
-    private string ReadFile()
+    private static string ReadFile()
     {
         return "";
     }
