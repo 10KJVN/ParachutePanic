@@ -10,19 +10,40 @@ public static class FileHandler
     {
         Debug.Log(GetPath(filename));
         string content = JsonHelper.ToJson<T>(toSave.ToArray());
-        WriteFile(GetPath(filename), content); // Only handles direct file input.
+        WriteFile(GetPath(filename), content);
     }
 
-    public static List<T> ReadFromJSON<T>(string filename)
+    public static void SaveToJSON<T>(T toSave, string filename) 
+    {
+        Debug.Log(GetPath(filename));
+        string content = JsonUtility.ToJson(toSave);
+        WriteFile(GetPath(filename), content);
+    }
+
+    public static List<T> ReadListFromJSON<T>(string filename)
     {
         string content = ReadFile(GetPath(filename));
 
         if (string.IsNullOrEmpty(content) || content == "{}")
-        { 
+        {
             return new List<T>();
         }
 
         List<T> res = JsonHelper.FromJson<T>(content).ToList();
+
+        return res;
+    }
+
+    public static T ReadFromJSON<T>(string filename)
+    {
+        string content = ReadFile(GetPath(filename));
+
+        if (string.IsNullOrEmpty(content) || content == "{}")
+        {
+            return default(T);
+        }
+
+        T res = JsonUtility.FromJson<T> (content);
 
         return res; 
     }    

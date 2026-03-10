@@ -11,7 +11,7 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
-        entries = FileHandler.ReadFromJSON<InputEntry>(filename);
+        entries = FileHandler.ReadListFromJSON<InputEntry> (filename);
     }
 
     public void AddNameToList()
