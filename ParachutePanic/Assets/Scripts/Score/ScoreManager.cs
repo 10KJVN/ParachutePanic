@@ -16,10 +16,12 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text highScoreText;
     public TMP_Text finalScoreText;
     public TMP_Text finalHighScoreText;
+    
+    // TODO: Getter/Setter for other scripts.
 
-    public UnityEvent <string, int> submitScoreEvent;
-    [SerializeField] private TextMeshProUGUI inputScore;
-    [SerializeField] private TMP_InputField inputName;
+    // public UnityEvent <string, int> submitScoreEvent;
+    // [SerializeField] private TextMeshProUGUI inputScore;
+    // [SerializeField] private TMP_InputField inputName;
     
     public void Awake()
     {
@@ -32,10 +34,10 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Score: " + currentScore;
     }
 
-    public void SubmitScore()
-    {
-        submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
-    }
+    // public void SubmitScore()
+    // {
+    //     submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
+    // }
 
     private void DisplayHighScore()
     {
@@ -64,4 +66,6 @@ public class ScoreManager : MonoBehaviour
         finalScoreText.text = "FINAL: " + currentScore;
         finalHighScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("SavedHighScore");
     }
+    
+    public int GetScore() => currentScore;
 }

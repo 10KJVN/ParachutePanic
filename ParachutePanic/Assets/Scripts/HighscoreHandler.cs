@@ -25,19 +25,23 @@ public class HighscoreHandler : MonoBehaviour
             highscoreList.RemoveAt(maxCount);
         }
 
-    }
+        if (onHighscoreListChanged != null)
+        {
+            onHighscoreListChanged.Invoke(highscoreList);
+        }
 
+    }
 
     private void SaveHighscore()
     {
-
+        FileHandler.SaveToJSON<HighscoreElement>(highscoreList, filename);
     }
 
     public void AddHighscoreIfPossible(HighscoreElement element)
     {
-        for (int i = 0; i < maxCount; i ++)
+        for (int i = 0; i < maxCount; i++)
         {
-            if(i >= highscoreList.Count || element.points > highscoreList[i].points)
+            if (i >= highscoreList.Count || element.points >= highscoreList[i].points)
             {
                 // add new high score
                 highscoreList.Insert(i, element);
@@ -48,9 +52,13 @@ public class HighscoreHandler : MonoBehaviour
                 }
 
                 SaveHighscore();
+                
+                if (onHighscoreListChanged != null)
+                {
+                    onHighscoreListChanged.Invoke(highscoreList);
+                }
 
                 break;
-                    
             }
 
         }

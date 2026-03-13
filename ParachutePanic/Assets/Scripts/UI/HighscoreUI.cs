@@ -10,6 +10,16 @@ public class HighscoreUI : MonoBehaviour
 
     List<GameObject> uiElements = new List<GameObject>();
 
+    private void OnEnable()
+    {
+        HighscoreHandler.onHighscoreListChanged += UpdateUI;
+    }
+
+    private void OnDisable()
+    {
+        HighscoreHandler.onHighscoreListChanged -= UpdateUI;
+    }
+
     public void ShowPanel()
     {
         panel.SetActive(true);
@@ -24,7 +34,7 @@ public class HighscoreUI : MonoBehaviour
     {
         for (int i = 0; i < list.Count; i++)
         {
-            HighscoreElement element = list[i];
+            var element = list[i];
 
             if (element.points > 0)
             {
