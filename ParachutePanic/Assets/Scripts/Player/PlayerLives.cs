@@ -1,6 +1,7 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 /// <summary>
@@ -13,7 +14,10 @@ public class PlayerLives : MonoBehaviour
     public GameObject hitImpactPrefab;
     public GameObject healImpactPrefab;
     public GameObject gameOverMenu;
+    public GameObject highScoreMenu;
     public ScoreManager scoreManager;
+
+    public Action OnDeath; // Invoke when life >= 0
     
     [Header( "Health Configuration" )]
     [SerializeField] private int lives;
@@ -68,12 +72,14 @@ public class PlayerLives : MonoBehaviour
 
     private void LoseLife()
     {
-
         if (lives <= 0)
         {
-            Time.timeScale = 0;
+            // Time.timeScale = 0; -> Moved to GameHandler.cs
             gameOverMenu.SetActive( true );
-            
+            highScoreMenu.SetActive(true);
+
+            OnDeath.Invoke();
+
             scoreManager.HighScoreUpdate();
         }
     }

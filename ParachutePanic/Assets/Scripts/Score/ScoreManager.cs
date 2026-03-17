@@ -12,6 +12,15 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public int currentScore;
+
+    //private int score;
+    public int Score => currentScore; // Dit is alleen de getter, is hetzelfde als return score
+
+    //public void AddScore(int addedScore)
+    //{
+    //    score += addedScore;
+    //}
+
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
     public TMP_Text finalScoreText;

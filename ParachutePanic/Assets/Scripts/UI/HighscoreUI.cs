@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class HighscoreUI : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class HighscoreUI : MonoBehaviour
                 }
 
                 // write or overwrite name & points
-                var texts = uiElements[i].GetComponentsInChildren<Text>();
+                var texts = uiElements[i].GetComponentsInChildren<TMP_Text>();
                 texts[0].text = element.playerName;
                 texts[1].text = element.points.ToString();
             }
