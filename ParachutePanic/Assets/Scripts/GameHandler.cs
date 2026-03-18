@@ -7,8 +7,8 @@ public class GameHandler : MonoBehaviour
 {
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private HighscoreHandler highscoreHandler;
-    //[SerializeField] private InputHandler inputHandler;
-    [SerializeField] private string playerName;
+    [SerializeField] private InputHandler inputHandler;
+    private string playerName; // Convert to setter, maybe ever?
 
     //[SerializeField] private TMP_InputField nameInput;
     //[SerializeField] private string filename;
@@ -35,12 +35,12 @@ public class GameHandler : MonoBehaviour
 
     // TO-DO: Find a way to communicate the nameInput (which is the name the player enters in an InputField)
 
-    // TO-DO: Find a way to communicate the finalScore (whatever the currentScore variable ended at on EndGame(). 
+    // TO-DO: Find a way to communicate the finalScore (whatever the currentScore variable ended at on EndGame()). 
     // Solved? By using a public getter property.
     public void StopGame()
     {
         highscoreHandler.AddHighscoreIfPossible 
-            (new HighscoreElement(playerName, scoreManager.Score));
+            (new HighscoreElement(inputHandler.Name, scoreManager.Score));
 
         Time.timeScale = 0;
         // Call manager to stop the game

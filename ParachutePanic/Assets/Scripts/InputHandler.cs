@@ -8,6 +8,9 @@ public class InputHandler : MonoBehaviour
     //public InputField nameInput { get; private set; }
     [SerializeField] TMP_InputField nameInput;
     [SerializeField] string filename;
+    
+    // Maybe with or without the = "" - But i'll see. It was without.
+    public string Name => nameInput.text; // public getter for name.
 
     List<InputEntry> entries = new List<InputEntry>();
 
