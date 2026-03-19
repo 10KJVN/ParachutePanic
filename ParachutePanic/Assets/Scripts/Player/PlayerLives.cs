@@ -80,6 +80,7 @@ public class PlayerLives : MonoBehaviour
 
             OnDeath.Invoke();
 
+            // Old method, updates the PlayerPrefs highscore.
             scoreManager.HighScoreUpdate();
         }
     }

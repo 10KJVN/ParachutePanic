@@ -12,15 +12,8 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public int currentScore;
-
-    //private int score;
-    public int Score => currentScore; // Dit is alleen de getter, is hetzelfde als return score
-
-    //public void AddScore(int addedScore)
-    //{
-    //    score += addedScore;
-    //}
-
+    public int Score => currentScore; // getter
+    
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
     public TMP_Text finalScoreText;
@@ -75,6 +68,4 @@ public class ScoreManager : MonoBehaviour
         finalScoreText.text = "FINAL: " + currentScore;
         finalHighScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("SavedHighScore");
     }
-    
-    public int GetScore() => currentScore;
 }

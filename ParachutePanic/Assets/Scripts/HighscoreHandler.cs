@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class HighscoreHandler : MonoBehaviour
 {
-    List<HighscoreElement> highscoreList = new List<HighscoreElement>();
-    [SerializeField] int maxCount = 10;
-    [SerializeField] string filename;
-
     public delegate void OnHighscoreListChanged(List<HighscoreElement> list);
     public static event OnHighscoreListChanged onHighscoreListChanged;
+    
+    [SerializeField] private int maxCount = 10;
+    [SerializeField] private string filename;
+    private List<HighscoreElement> highscoreList = new List<HighscoreElement>();
 
     private void Start()
     {
