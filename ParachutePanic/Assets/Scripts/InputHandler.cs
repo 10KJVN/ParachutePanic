@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class InputHandler : MonoBehaviour
@@ -10,7 +9,7 @@ public class InputHandler : MonoBehaviour
     
     [SerializeField] private TMP_InputField nameInput;
     [SerializeField] private string filename;
-    private List<InputEntry> entries = new List<InputEntry>();
+    private List<InputEntry> entries = new();
 
     private void Start()
     {
