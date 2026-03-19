@@ -15,7 +15,7 @@ public class HighscoreHandler : MonoBehaviour
     
     [SerializeField] private int maxCount = 10;
     [SerializeField] private string filename;
-    private List<HighscoreElement> highscoreList = new List<HighscoreElement>();
+    private List<HighscoreElement> highscoreList = new();
 
     private void Start()
     {
