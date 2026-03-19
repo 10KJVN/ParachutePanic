@@ -8,16 +8,9 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private HighscoreHandler highscoreHandler;
     [SerializeField] private InputHandler inputHandler;
-    private string playerName; // Convert to setter, maybe ever?
-
-    //[SerializeField] private TMP_InputField nameInput;
-    //[SerializeField] private string filename;
-
-    // Try, refactor or make <HighscoreElement> instead.
-    private List<InputEntry> entries = new List<InputEntry>();
-
     [SerializeField] private PlayerLives livesManager;
-
+    private string playerName; // Convert to setter, maybe ever?
+    
     private void OnEnable()
     {
         livesManager.OnDeath += StopGame;
@@ -33,10 +26,8 @@ public class GameHandler : MonoBehaviour
         // Call manager to start the game
     }
 
-    // TO-DO: Find a way to communicate the nameInput (which is the name the player enters in an InputField)
-
-    // TO-DO: Find a way to communicate the finalScore (whatever the currentScore variable ended at on EndGame()). 
-    // Solved? By using a public getter property.
+    // TODO: Find a way to communicate the nameInput (which is the name the player enters in an InputField)
+    
     public void StopGame()
     {
         highscoreHandler.AddHighscoreIfPossible 

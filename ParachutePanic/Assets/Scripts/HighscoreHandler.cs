@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class manages the new Highscore System.
+/// By writing/reading to .JSON files utilizing
+/// The FileHandler.cs functionalities.
+/// </summary>
+
 public class HighscoreHandler : MonoBehaviour
 {
     public delegate void OnHighscoreListChanged(List<HighscoreElement> list);
@@ -25,11 +31,7 @@ public class HighscoreHandler : MonoBehaviour
             highscoreList.RemoveAt(maxCount);
         }
 
-        if (onHighscoreListChanged != null)
-        {
-            onHighscoreListChanged.Invoke(highscoreList);
-        }
-
+        onHighscoreListChanged?.Invoke(highscoreList);
     }
 
     private void SaveHighscore()
@@ -52,12 +54,7 @@ public class HighscoreHandler : MonoBehaviour
                 }
 
                 SaveHighscore();
-                
-                if (onHighscoreListChanged != null)
-                {
-                    onHighscoreListChanged.Invoke(highscoreList);
-                }
-
+                onHighscoreListChanged?.Invoke(highscoreList);
                 break;
             }
 

@@ -5,11 +5,10 @@ using TMPro;
 
 public class HighscoreUI : MonoBehaviour
 {
-    [SerializeField] GameObject panel;
-    [SerializeField] GameObject highscoreUIElementPrefab;
-    [SerializeField] Transform elementWrapper;
-
-    List<GameObject> uiElements = new List<GameObject>();
+    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject highscoreUIElementPrefab;
+    [SerializeField] private Transform elementWrapper;
+    private List<GameObject> uiElements = new();
 
     private void OnEnable()
     {
