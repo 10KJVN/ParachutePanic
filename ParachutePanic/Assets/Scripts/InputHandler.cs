@@ -5,6 +5,12 @@ using TMPro;
 public class InputHandler : MonoBehaviour
 {
     public string Name => nameInput.text; // public getter for name.
+    
+    // public string Name
+    // {
+    //     get => nameInput.text;
+    //     set => nameInput.text = value;
+    // }
     // TODO: Add a private Setter either here or elsewhere.
     
     [SerializeField] private TMP_InputField nameInput;

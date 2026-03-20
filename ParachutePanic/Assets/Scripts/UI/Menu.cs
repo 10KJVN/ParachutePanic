@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// This class handles menu navigation w/ controller support.
 /// This goes for Pausing/Unpausing, and the GameOverMenu specifically.
+/// EDIT: NO MORE CONTROLLER SUPPORT, IT'S CANCELED.
 /// </summary>
 
 public class Menu : MonoBehaviour
@@ -14,9 +15,9 @@ public class Menu : MonoBehaviour
     public GameObject goFirstButton;
     public GameObject goSecondButton;
 
-    void Update()
+    private void Update()
     {
-        if ( Input.GetKeyDown( KeyCode.P ) || Input.GetButtonDown( "Fire3" ) )
+        if ( Input.GetKeyDown( KeyCode.P ) )
         {
             PauseUnpause();
         }
@@ -25,7 +26,6 @@ public class Menu : MonoBehaviour
         {
             GameOverResume();
         }
-        
     }
 
     public void PauseUnpause()

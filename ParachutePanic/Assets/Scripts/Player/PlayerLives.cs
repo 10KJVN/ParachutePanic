@@ -14,7 +14,6 @@ public class PlayerLives : MonoBehaviour
     public GameObject hitImpactPrefab;
     public GameObject healImpactPrefab;
     public GameObject gameOverMenu;
-    public GameObject highScoreMenu;
     public ScoreManager scoreManager;
 
     public Action OnDeath; // Invoke when life >= 0
@@ -48,6 +47,7 @@ public class PlayerLives : MonoBehaviour
                     livesUI[i].enabled = false;
                 }
             }
+            
             if (lives <= 0)
             {
                 Destroy( gameObject );
@@ -74,9 +74,8 @@ public class PlayerLives : MonoBehaviour
     {
         if (lives <= 0)
         {
-            // Time.timeScale = 0; -> Moved to GameHandler.cs
+            Time.timeScale = 0;
             gameOverMenu.SetActive( true );
-            highScoreMenu.SetActive(true);
 
             OnDeath.Invoke();
 
