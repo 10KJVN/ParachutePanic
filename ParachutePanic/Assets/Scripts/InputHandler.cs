@@ -1,17 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using Random = UnityEngine.Random;
+
+/// <summary>
+/// This class handles the input of the InputField
+/// In which you pass on a username to add to a highscore list for example.
+/// Start() and AddNameToList() are kept for standalone testing purposes.
+/// </summary>
 
 public class InputHandler : MonoBehaviour
 {
-    public string Name => nameInput.text; // public getter for name.
-    
-    // public string Name
-    // {
-    //     get => nameInput.text;
-    //     set => nameInput.text = value;
-    // }
-    // TODO: Add a private Setter either here or elsewhere.
+    public string Name => nameInput.text;
+    public Action OnNameRecceived;
     
     [SerializeField] private TMP_InputField nameInput;
     [SerializeField] private string filename;
@@ -28,6 +30,6 @@ public class InputHandler : MonoBehaviour
         entries.Add(new InputEntry(nameInput.text, Random.Range(0, 100)));
         nameInput.text = "";
 
-        FileHandler.SaveToJSON<InputEntry>(entries, filename);
+        FileHandler.SaveToJSON(entries, filename);
     }
 }

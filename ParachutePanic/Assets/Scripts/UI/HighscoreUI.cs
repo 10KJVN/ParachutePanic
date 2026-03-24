@@ -1,7 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+
+/// <summary>
+/// This class manages purely the HighscoreUI
+/// And listens to when to open, close or update it.
+/// </summary>
 
 public class HighscoreUI : MonoBehaviour
 {

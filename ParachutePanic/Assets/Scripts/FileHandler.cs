@@ -29,9 +29,9 @@ public static class FileHandler
             return new List<T>();
         }
 
-        List<T> res = JsonHelper.FromJson<T>(content).ToList();
+        List<T> response = JsonHelper.FromJson<T>(content).ToList();
 
-        return res;
+        return response;
     }
 
     public static T ReadFromJSON<T>(string filename)
@@ -43,9 +43,9 @@ public static class FileHandler
             return default(T);
         }
 
-        T res = JsonUtility.FromJson<T> (content);
+        T response = JsonUtility.FromJson<T> (content);
 
-        return res; 
+        return response; 
     }    
 
     private static string GetPath(string filename)
