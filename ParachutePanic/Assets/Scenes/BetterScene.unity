@@ -3804,6 +3804,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClusterSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2502632397725075851, guid: 33ae4791c27ae9646810a080f3b33854, type: 3}
+      propertyPath: healInterval
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502632397725075851, guid: 33ae4791c27ae9646810a080f3b33854, type: 3}
+      propertyPath: clusterInterval
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502632397725075851, guid: 33ae4791c27ae9646810a080f3b33854, type: 3}
+      propertyPath: obstacleInterval
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3430291296864055102, guid: 33ae4791c27ae9646810a080f3b33854, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
