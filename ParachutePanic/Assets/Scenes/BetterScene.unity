@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameInput: {fileID: 546673008}
-  filename: 26Maart.json
+  filename: Highscores.json
 --- !u!114 &267454895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCount: 10
-  filename: 26Maart.json
+  filename: Highscores.json
 --- !u!114 &267454897
 MonoBehaviour:
   m_ObjectHideFlags: 0
