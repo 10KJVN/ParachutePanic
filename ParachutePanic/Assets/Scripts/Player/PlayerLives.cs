@@ -16,7 +16,7 @@ public class PlayerLives : MonoBehaviour
     public GameObject gameOverMenu;
     public ScoreManager scoreManager;
 
-    public Action OnDeath; // Invoke when life >= 0
+    public Action OnDeath; // Invoke when life <= 0
     
     [Header( "Health Configuration" )]
     [SerializeField] private int lives;
@@ -58,14 +58,14 @@ public class PlayerLives : MonoBehaviour
         if ( other.collider.gameObject.CompareTag( "Parachute" ) )
         {
             Destroy( other.collider.gameObject );
-            scoreManager.ChangeScore( 7 );
+            scoreManager.ChangeScore( +7 );
         }
         
         if ( other.collider.gameObject.CompareTag( "PowerUp" ) )
         {
             Destroy( other.collider.gameObject );
             Instantiate( healImpactPrefab, transform.position, quaternion.identity );
-            scoreManager.ChangeScore( 3 );
+            scoreManager.ChangeScore( +3 );
 
             if (lives < 5 ) // Capped to increase difficulty.
             {

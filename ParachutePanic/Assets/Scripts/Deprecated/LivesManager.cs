@@ -8,23 +8,10 @@ using TMPro;
 
 public class LivesManager : MonoBehaviour
 {
-    
     public int currentLives = 3;
     public GameObject gameOverPanel;
     public TMP_Text livesText;
-    
     public ScoreManager scoreManager;
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     public void LoseLife()
     {

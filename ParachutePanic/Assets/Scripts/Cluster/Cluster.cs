@@ -5,8 +5,6 @@ using UnityEngine;
 /// Parachutes, Obstacles, Heals you name it.
 /// It initiates these with randomized speed values as well.    
 /// BounceSpeed is the multiplying factor of the HorizontalMoveSpeed.
-/// 
-/// TO-DO: Less Magic numbers in InitCluster function.
 /// </summary>
 
 public class Cluster : MonoBehaviour

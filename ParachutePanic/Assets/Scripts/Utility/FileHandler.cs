@@ -4,6 +4,13 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Utility class that handles Writing/Reading to JSON files.
+/// Using Generics allows for flexibility between the types of data
+/// to Save or Load. Whenever another class uses this and requires:
+/// a "filename" parameter, make sure to end it on name.json yourself.
+/// </summary>
+
 public static class FileHandler
 {
     public static void SaveToJSON<T>(List<T> toSave, string filename)

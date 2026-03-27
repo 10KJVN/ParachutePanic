@@ -6,7 +6,7 @@ using TMPro;
 /// <summary>
 /// This class manages the Score UIs and displays them.
 /// ChangeScore(points) is a reusable function that allows for multiple classes
-/// or cases to either increase or decrease scores assigned e.g. -1 or 2 (for plus).
+/// or cases to either increase or decrease scores assigned e.g. -1 or +2.
 /// </summary>
 
 public class ScoreManager : MonoBehaviour

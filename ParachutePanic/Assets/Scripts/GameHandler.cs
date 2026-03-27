@@ -28,19 +28,16 @@ public class GameHandler : MonoBehaviour
         // Call manager to start the game
     }
 
-    // TODO: Find a way to communicate the nameInput (which is the name the player enters in an InputField)
+    // TODO: Find a way to communicate the nameInput
     private void EnterName()
     {
         if (inputHandler.Name == "")
         {
             highscoreMenu.SetActive(true);
         }
-        
-        // if (inputHandler.Name != "")
-        // {
-        //     inputHandler.Name = playerName;
-        //     StopGame();
-        // }
+
+        // A UnityEvent on the enter button of the EnterHighscore_Widget.
+        // That's how it communicates to call -> StopGame() function.
     }
     
     public void StopGame()

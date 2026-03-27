@@ -7,7 +7,8 @@ using UnityEngine;
 public class BottomBound : MonoBehaviour
 {
     private ScoreManager scoreManager;
-    void Start()
+
+    private void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
@@ -18,7 +19,7 @@ public class BottomBound : MonoBehaviour
         if (other.collider.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.collider.gameObject);
-            scoreManager.ChangeScore(3);
+            scoreManager.ChangeScore( +3 );
             
         }
     }

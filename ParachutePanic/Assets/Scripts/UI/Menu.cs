@@ -15,6 +15,10 @@ public class Menu : MonoBehaviour
     public GameObject goFirstButton;
     public GameObject goSecondButton;
 
+    // TODO: Safeguard update() to no longer allow 
+    // Game being paused while on game over screen.
+    // This causes it to continue in the background.
+
     private void Update()
     {
         if ( Input.GetKeyDown( KeyCode.P ) )

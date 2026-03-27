@@ -11,7 +11,6 @@ public class PauseMenu : MonoBehaviour
     
     private bool isPaused;
 
-    // Update is called once per frame
     private void Update()
     {
         if (Input.GetButtonDown("Cancel") || Input.GetKeyDown(KeyCode.P))
@@ -27,17 +26,17 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void PauseGame()
-    {
-        Time.timeScale = 0;
-        pausePanel.SetActive(true);
-        isPaused = true;
-    }
-
     public void ResumeGame()
     {
         Time.timeScale = 1;
         pausePanel.SetActive(false);
         isPaused = false;
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+        isPaused = true;
     }
 }

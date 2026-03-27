@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SimpleScene.unity
     guid: 0ded3730cc3f3994ab7d529718d9cd54
   - enabled: 0
-    path: Assets/Scenes/PlayerScene.unity
+    path: Assets/Scenes/Debug/PlayerScene.unity
     guid: 37aa7d6591de76e4d90614252ddc6633
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
