@@ -11,11 +11,13 @@ public class ScoreUI : MonoBehaviour
     private void OnEnable()
     {
         scoreSystem.OnScoreChange += UpdateUI;
+        GameHandler.OnGameEnd += DisplayFinalScore;
     }
 
     private void OnDisable()
     {
         scoreSystem.OnScoreChange -= UpdateUI;
+        GameHandler.OnGameEnd -= DisplayFinalScore;
     }
 
     private void Start()
@@ -26,6 +28,10 @@ public class ScoreUI : MonoBehaviour
     private void UpdateUI()
     {
         scoreText.text = scoreSystem.Score.ToString();
-        //print(scoreSystem.Score);
+    }
+
+    private void DisplayFinalScore()
+    {
+        finalScoreText.text = "FINAL SCORE: " + scoreSystem.Score;
     }
 }

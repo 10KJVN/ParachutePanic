@@ -6,6 +6,7 @@ using TMPro;
 public class GameHandler : MonoBehaviour
 {
     public GameObject highscoreMenu;
+    public static Action OnGameEnd;
     
     // [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private ScoreHandler scoreSystem;
@@ -32,6 +33,8 @@ public class GameHandler : MonoBehaviour
     // TODO: Find a way to communicate the nameInput
     private void EnterName()
     {
+        OnGameEnd?.Invoke();
+        
         if (inputHandler.Name == "")
         {
             highscoreMenu.SetActive(true);
