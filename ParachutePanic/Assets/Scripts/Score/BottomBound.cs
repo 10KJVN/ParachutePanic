@@ -7,10 +7,12 @@ using UnityEngine;
 public class BottomBound : MonoBehaviour
 {
     private ScoreManager scoreManager;
+    private ScoreHandler scoreSystem;
 
     private void Start()
     {
-        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        //scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        scoreSystem = GameObject.Find("Managers").GetComponent<ScoreHandler>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -19,8 +21,8 @@ public class BottomBound : MonoBehaviour
         if (other.collider.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.collider.gameObject);
-            scoreManager.ChangeScore( +3 );
-            
+            //scoreManager.ChangeScore( +3 );
+            scoreSystem.IncrementScore( 3 );
         }
     }
 }

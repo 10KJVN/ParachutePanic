@@ -13,6 +13,7 @@ public class Cluster : MonoBehaviour
     public float bounceSpeed;
     
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private ScoreHandler scoreSystem;
 
     private float horizontalMoveSpeed;
     private float verticalMoveSpeed;
@@ -43,7 +44,8 @@ public class Cluster : MonoBehaviour
 
     private void Start()
     {
-        scoreManager = GameObject.Find( "ScoreManager" ).GetComponent<ScoreManager>();
+        // scoreManager = GameObject.Find( "ScoreManager" ).GetComponent<ScoreManager>();
+        scoreSystem = GameObject.Find( "Managers" ).GetComponent<ScoreHandler>();
         horizontalMoveSpeed = posX + speedX;
         verticalMoveSpeed = posY + speedY;
         
@@ -70,7 +72,8 @@ public class Cluster : MonoBehaviour
         
         if (collision.gameObject.CompareTag( "BoundsOut" ))
         {
-            scoreManager.ChangeScore( -1 );
+            //scoreManager.ChangeScore( -1 );
+            scoreSystem.DecrementScore( 1 );
             Destroy( gameObject );
         }
         

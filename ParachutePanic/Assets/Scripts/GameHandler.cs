@@ -7,7 +7,8 @@ public class GameHandler : MonoBehaviour
 {
     public GameObject highscoreMenu;
     
-    [SerializeField] private ScoreManager scoreManager;
+    // [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private ScoreHandler scoreSystem;
     [SerializeField] private HighscoreHandler highscoreHandler;
     [SerializeField] private InputHandler inputHandler;
     [SerializeField] private PlayerLives livesManager;
@@ -43,6 +44,6 @@ public class GameHandler : MonoBehaviour
     public void StopGame()
     {
         highscoreHandler.AddHighscoreIfPossible 
-            (new HighscoreElement(inputHandler.Name, scoreManager.Score));
+            (new HighscoreElement(inputHandler.Name, scoreSystem.Score));
     }
 }

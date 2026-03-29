@@ -15,6 +15,7 @@ public class PlayerLives : MonoBehaviour
     public GameObject healImpactPrefab;
     public GameObject gameOverMenu;
     public ScoreManager scoreManager;
+    [SerializeField] private ScoreHandler scoreSystem;
 
     public Action OnDeath; // Invoke when life <= 0
     
@@ -24,7 +25,8 @@ public class PlayerLives : MonoBehaviour
     
     private void Start()
     {
-        scoreManager = GameObject.Find( "ScoreManager" ).GetComponent<ScoreManager>();
+        //scoreManager = GameObject.Find( "ScoreManager" ).GetComponent<ScoreManager>();
+        scoreSystem = GameObject.Find("Managers").GetComponent<ScoreHandler>();
     }
 
     private void OnCollisionEnter2D( Collision2D other )
@@ -32,7 +34,8 @@ public class PlayerLives : MonoBehaviour
         if ( other.collider.gameObject.CompareTag( "Enemy" ) )
         {
             Destroy( other.collider.gameObject );
-            scoreManager.ChangeScore( -5 );
+            // scoreManager.ChangeScore( -5 );
+            scoreSystem.DecrementScore(5);
             Instantiate( hitImpactPrefab, transform.position, quaternion.identity );
             
             lives -= 1;
@@ -58,14 +61,16 @@ public class PlayerLives : MonoBehaviour
         if ( other.collider.gameObject.CompareTag( "Parachute" ) )
         {
             Destroy( other.collider.gameObject );
-            scoreManager.ChangeScore( +7 );
+            //scoreManager.ChangeScore( +7 );
+            scoreSystem.IncrementScore(7);
         }
         
         if ( other.collider.gameObject.CompareTag( "PowerUp" ) )
         {
             Destroy( other.collider.gameObject );
             Instantiate( healImpactPrefab, transform.position, quaternion.identity );
-            scoreManager.ChangeScore( +3 );
+            //scoreManager.ChangeScore( +3 );
+            scoreSystem.IncrementScore(3);
 
             if (lives < 5 ) // Capped to increase difficulty.
             {
@@ -85,7 +90,7 @@ public class PlayerLives : MonoBehaviour
             OnDeath.Invoke();
 
             // Old method, updates the PlayerPrefs highscore.
-            scoreManager.HighScoreUpdate();
+            //scoreManager.HighScoreUpdate();
         }
     }
 }

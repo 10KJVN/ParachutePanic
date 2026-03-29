@@ -8,6 +8,16 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] private TMP_Text finalScoreText;
     [SerializeField] private ScoreHandler scoreSystem;
 
+    private void OnEnable()
+    {
+        scoreSystem.OnScoreChange += UpdateUI;
+    }
+
+    private void OnDisable()
+    {
+        scoreSystem.OnScoreChange -= UpdateUI;
+    }
+
     private void Start()
     {
         UpdateUI();
@@ -16,6 +26,6 @@ public class ScoreUI : MonoBehaviour
     private void UpdateUI()
     {
         scoreText.text = scoreSystem.Score.ToString();
-        print(scoreSystem.Score);
+        //print(scoreSystem.Score);
     }
 }
