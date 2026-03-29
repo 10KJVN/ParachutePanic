@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
         DisplayHighScore();
     }
 
-    public void ChangeScore(int points)
+    public void ChangeScore( int points )
     {
         currentScore += points;
         scoreText.text = "Score: " + currentScore;
@@ -43,29 +43,29 @@ public class ScoreManager : MonoBehaviour
 
     private void DisplayHighScore()
     {
-        highScoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString();
+        highScoreText.text = PlayerPrefs.GetInt( "SavedHighScore" ).ToString();
     }
 
     public void HighScoreUpdate()
     {
         // Is there already a highscore?
-        if (PlayerPrefs.HasKey("SavedHighScore"))
+        if ( PlayerPrefs.HasKey( "SavedHighScore" ) )
         {
             // is the new score higher than the saved one?
-            if (currentScore > PlayerPrefs.GetInt("SavedHighScore"))
+            if ( currentScore > PlayerPrefs.GetInt( "SavedHighScore" ) )
             {
                 // Set a new high score
-                PlayerPrefs.SetInt("SavedHighScore", currentScore);
+                PlayerPrefs.SetInt( "SavedHighScore", currentScore );
             }
         }
         else
         {
             // If there is no highscore, set it
-            PlayerPrefs.SetInt("SavedHighScore", currentScore);
+            PlayerPrefs.SetInt( "SavedHighScore", currentScore );
         }
         
         // Update our TMP reference
         finalScoreText.text = "FINAL: " + currentScore;
-        finalHighScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("SavedHighScore");
+        finalHighScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt( "SavedHighScore" );
     }
 }

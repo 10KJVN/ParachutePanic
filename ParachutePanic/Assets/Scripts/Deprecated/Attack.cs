@@ -11,13 +11,14 @@ public class Attack : MonoBehaviour
     public GameObject hitImpactPrefab;
 
     [SerializeField] private ScoreManager scoreManager;
-    void Start()
+
+    private void Start()
     {
         //ScoreManager = GetComponent<PointManager>();
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
-    void Update()
+    private void Update()
     {
         transform.Translate(Vector2.up * attackSpeed * Time.deltaTime);
     }
