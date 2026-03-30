@@ -166,6 +166,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 267454893}
+  - component: {fileID: 267454895}
+  - component: {fileID: 267454894}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -193,6 +195,34 @@ Transform:
   - {fileID: 782834062}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &267454894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267454892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f06bc344134a498e1f7b5b5ddcd40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 2044917852886124295}
+  finalScoreText: {fileID: 5781574495974621211}
+  scoreSystem: {fileID: 267454895}
+--- !u!114 &267454895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267454892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ec7bab00a04715a2dd4c7a2e2c8fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &280276676
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 0
-  scoreManager: {fileID: 1959261387}
+  scoreSystem: {fileID: 0}
 --- !u!50 &593583448
 Rigidbody2D:
   serializedVersion: 5
@@ -1338,7 +1368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 0
-  scoreManager: {fileID: 1959261387}
+  scoreSystem: {fileID: 0}
 --- !u!50 &857987187
 Rigidbody2D:
   serializedVersion: 5
@@ -1658,7 +1688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 0
-  scoreManager: {fileID: 1959261387}
+  scoreSystem: {fileID: 0}
 --- !u!50 &1023745189
 Rigidbody2D:
   serializedVersion: 5
@@ -2177,7 +2207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1092675413}
-  goMenu: {fileID: 4217918134160833774}
+  gameOverMenu: {fileID: 4217918134160833774}
   pauseFirstButton: {fileID: 1035244109}
   goFirstButton: {fileID: 1194918591644127748}
   goSecondButton: {fileID: 713876699}
@@ -2341,7 +2371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 0
-  scoreManager: {fileID: 1959261387}
+  scoreSystem: {fileID: 0}
 --- !u!50 &1171354402
 Rigidbody2D:
   serializedVersion: 5
@@ -2706,7 +2736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 0
-  scoreManager: {fileID: 1959261387}
+  scoreSystem: {fileID: 0}
 --- !u!50 &1398780129
 Rigidbody2D:
   serializedVersion: 5
@@ -3035,7 +3065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 0
-  scoreManager: {fileID: 1959261387}
+  scoreSystem: {fileID: 0}
 --- !u!50 &1468107526
 Rigidbody2D:
   serializedVersion: 5
@@ -3291,7 +3321,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1959261387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4470,7 +4500,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 112132655813440537, guid: 3d48df0cc78c4ae478f8002cbb1cc92a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 112132655813440537, guid: 3d48df0cc78c4ae478f8002cbb1cc92a, type: 3}
       propertyPath: attackPrefab
@@ -4484,6 +4514,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimplePlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 6464375258013236642, guid: 3d48df0cc78c4ae478f8002cbb1cc92a, type: 3}
+      propertyPath: maxLives
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464375258013236642, guid: 3d48df0cc78c4ae478f8002cbb1cc92a, type: 3}
+      propertyPath: scoreSystem
+      value: 
+      objectReference: {fileID: 267454895}
     - target: {fileID: 6464375258013236642, guid: 3d48df0cc78c4ae478f8002cbb1cc92a, type: 3}
       propertyPath: gameOverMenu
       value: 
@@ -5526,7 +5564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 0
-  scoreManager: {fileID: 1959261387}
+  scoreSystem: {fileID: 0}
 --- !u!222 &8488385690062162763
 CanvasRenderer:
   m_ObjectHideFlags: 0
