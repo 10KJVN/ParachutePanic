@@ -10,7 +10,6 @@ using UnityEngine;
 
 public class HighscoreHandler : MonoBehaviour
 {
-    public int HighestScore { get; private set; }
     public delegate void OnHighscoreListChanged(List<HighscoreElement> list);
     public static event OnHighscoreListChanged onHighscoreListChanged;
 
@@ -66,13 +65,10 @@ public class HighscoreHandler : MonoBehaviour
 
         }
     }
-
-    // Not sure if this should be a void
-    // Not sure which of two to return either.
-    public int GetHighestScoreAvailable()
+    
+    public void GetHighestScoreAvailable()
     {
-        HighestScore = highestScore;
+        Debug.Log($"The highest score found is: " + highestScore);
         onHighscoresLoaded?.Invoke(highestScore);
-        return highestScore;
     }
 }

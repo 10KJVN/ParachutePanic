@@ -11,21 +11,20 @@ using TMPro;
 
 public class PlayerLives : MonoBehaviour
 {
+    public Action OnDeath;
     public GameObject hitImpactPrefab;
     public GameObject healImpactPrefab;
     public GameObject gameOverMenu;
-    public ScoreManager scoreManager;
+    
     [SerializeField] private ScoreHandler scoreSystem;
-
-    public Action OnDeath; // Invoke when life <= 0
     
     [Header( "Health Configuration" )]
-    [SerializeField] private int lives;
+    [SerializeField] private int lives = 3;
+    [SerializeField] private int maxLives = 5;
     [SerializeField] private TMP_Text[] livesUI;
     
     private void Start()
     {
-        //scoreManager = GameObject.Find( "ScoreManager" ).GetComponent<ScoreManager>();
         scoreSystem = GameObject.Find("Managers").GetComponent<ScoreHandler>();
     }
 
@@ -34,7 +33,6 @@ public class PlayerLives : MonoBehaviour
         if ( other.collider.gameObject.CompareTag( "Enemy" ) )
         {
             Destroy( other.collider.gameObject );
-            // scoreManager.ChangeScore( -5 );
             scoreSystem.DecrementScore(5);
             Instantiate( hitImpactPrefab, transform.position, quaternion.identity );
             
@@ -61,7 +59,6 @@ public class PlayerLives : MonoBehaviour
         if ( other.collider.gameObject.CompareTag( "Parachute" ) )
         {
             Destroy( other.collider.gameObject );
-            //scoreManager.ChangeScore( +7 );
             scoreSystem.IncrementScore(7);
         }
         
@@ -69,14 +66,12 @@ public class PlayerLives : MonoBehaviour
         {
             Destroy( other.collider.gameObject );
             Instantiate( healImpactPrefab, transform.position, quaternion.identity );
-            //scoreManager.ChangeScore( +3 );
             scoreSystem.IncrementScore(3);
-
-            if (lives < 5 ) // Capped to increase difficulty.
+            
+            if ( lives < maxLives )
             {
                 lives += 1;
             }
-
         }
     }
 
@@ -88,9 +83,6 @@ public class PlayerLives : MonoBehaviour
             gameOverMenu.SetActive( true );
 
             OnDeath.Invoke();
-
-            // Old method, updates the PlayerPrefs highscore.
-            //scoreManager.HighScoreUpdate();
         }
     }
 }

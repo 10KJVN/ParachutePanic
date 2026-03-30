@@ -35,17 +35,15 @@ public class ScoreManager : MonoBehaviour
         currentScore += points;
         scoreText.text = "Score: " + currentScore;
     }
-
-    // public void SubmitScore()
-    // {
-    //     submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
-    // }
-
+    
     private void DisplayHighScore()
     {
         highScoreText.text = PlayerPrefs.GetInt( "SavedHighScore" ).ToString();
     }
-
+    
+    /// <summary>
+    /// Old method to handle highscores using Unity's PlayerPrefs.
+    /// </summary>
     public void HighScoreUpdate()
     {
         // Is there already a highscore?
@@ -68,4 +66,9 @@ public class ScoreManager : MonoBehaviour
         finalScoreText.text = "FINAL: " + currentScore;
         finalHighScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt( "SavedHighScore" );
     }
+    
+    // public void SubmitScore()
+    // {
+    //     submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
+    // }
 }

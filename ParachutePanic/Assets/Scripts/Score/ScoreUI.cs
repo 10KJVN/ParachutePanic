@@ -1,6 +1,10 @@
-using System;
 using UnityEngine;
 using TMPro;
+
+/// <summary>
+/// This class displays the UI of the main score.
+/// As a subscriber to the "OnScoreChange" Action.
+/// </summary>
 
 public class ScoreUI : MonoBehaviour
 {

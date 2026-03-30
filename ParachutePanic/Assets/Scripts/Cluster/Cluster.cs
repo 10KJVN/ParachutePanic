@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// This class handles the movement behaviour of all clusters
+/// This class handles the movement behavior of all clusters
 /// Parachutes, Obstacles, Heals you name it.
 /// It initiates these with randomized speed values as well.    
 /// BounceSpeed is the multiplying factor of the HorizontalMoveSpeed.
@@ -10,9 +10,8 @@ using UnityEngine;
 public class Cluster : MonoBehaviour
 {
     [Header( "Movement Variable" )]
-    public float bounceSpeed;
+    [SerializeField] private float bounceSpeed;
     
-    [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private ScoreHandler scoreSystem;
 
     private float horizontalMoveSpeed;
@@ -32,19 +31,16 @@ public class Cluster : MonoBehaviour
         var maximumHorizontalSpeed = 16;
         var minimumVerticalSpeed = 6;
         var maximumVerticalSpeed = 7;
-
-
+        
         posX = Random.Range( minimumHorizontalPosition, maximumHorizontalPosition );
         posY = height * heightVariation;
         
         speedX = Random.Range( minimumHorizontalSpeed, maximumHorizontalSpeed );
         speedY = Random.Range( minimumVerticalSpeed, maximumVerticalSpeed );
     }
-
-
+    
     private void Start()
     {
-        // scoreManager = GameObject.Find( "ScoreManager" ).GetComponent<ScoreManager>();
         scoreSystem = GameObject.Find( "Managers" ).GetComponent<ScoreHandler>();
         horizontalMoveSpeed = posX + speedX;
         verticalMoveSpeed = posY + speedY;
@@ -72,7 +68,6 @@ public class Cluster : MonoBehaviour
         
         if (collision.gameObject.CompareTag( "BoundsOut" ))
         {
-            //scoreManager.ChangeScore( -1 );
             scoreSystem.DecrementScore( 1 );
             Destroy( gameObject );
         }
@@ -81,12 +76,12 @@ public class Cluster : MonoBehaviour
         // Score Calculation -> BottomBound.cs
     }
 
-    int CalculatePosition( int currentPos, int velocity )
+    private int CalculatePosition( int currentPos, int velocity )
     {
         return currentPos + velocity;
     }
 
-    int CalculateVelocity( int pos, int velocity, int min, int max )
+    private int CalculateVelocity( int pos, int velocity, int min, int max )
     {
         if ( pos <= min || pos >= max )
         {
@@ -96,6 +91,7 @@ public class Cluster : MonoBehaviour
         return velocity;
     }
 
+    // TODO: Debug Time related stutter bug, probs happens here.
     private void UpdateClusterPosition()
     {
         var min = -10;

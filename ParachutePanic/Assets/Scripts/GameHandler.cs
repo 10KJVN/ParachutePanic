@@ -34,9 +34,6 @@ public class GameHandler : MonoBehaviour
     public void StartGame()
     {
         highscoreHandler.GetHighestScoreAvailable();
-        print(highscoreHandler.HighestScore);
-        
-        //OnGameStart?.Invoke();
     }
 
     // TODO: Find a way to communicate the nameInput

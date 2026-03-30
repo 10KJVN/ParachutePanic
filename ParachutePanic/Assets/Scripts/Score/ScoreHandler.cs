@@ -1,13 +1,18 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
+
+/// <summary>
+/// This class manages the main Score.
+/// It enables other classes to add or decrease it,
+/// to which it listens to notify the ScoreUI class.
+/// </summary>
 
 public class ScoreHandler : MonoBehaviour
 {
     public int Score { get; private set; }
+    public Action OnScoreChange;
     
     [SerializeField] private int score;
-    public Action OnScoreChange;
     
     public void IncrementScore(int amount)
     {

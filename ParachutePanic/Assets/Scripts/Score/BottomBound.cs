@@ -2,6 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Hardcoded solution to score +2 when missing an Obstacle
+/// See Cluster.cs ln 69 - ln 73, If curious 'bout reason.
 /// </summary>
  
 public class BottomBound : MonoBehaviour
@@ -11,7 +12,6 @@ public class BottomBound : MonoBehaviour
 
     private void Start()
     {
-        //scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         scoreSystem = GameObject.Find("Managers").GetComponent<ScoreHandler>();
     }
 
@@ -21,7 +21,6 @@ public class BottomBound : MonoBehaviour
         if (other.collider.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.collider.gameObject);
-            //scoreManager.ChangeScore( +3 );
             scoreSystem.IncrementScore( 3 );
         }
     }
