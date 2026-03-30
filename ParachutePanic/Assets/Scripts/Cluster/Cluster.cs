@@ -9,9 +9,9 @@ using UnityEngine;
 
 public class Cluster : MonoBehaviour
 {
-    [Header( "Movement Variable" )]
+    [Tooltip("Movement Variable")]
     [SerializeField] private float bounceSpeed;
-    
+    [Tooltip("Auto assigned, serialized to verify")]
     [SerializeField] private ScoreHandler scoreSystem;
 
     private float horizontalMoveSpeed;
