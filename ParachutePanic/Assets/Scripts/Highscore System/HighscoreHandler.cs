@@ -10,12 +10,17 @@ using UnityEngine;
 
 public class HighscoreHandler : MonoBehaviour
 {
+    public int HighestScore { get; private set; }
     public delegate void OnHighscoreListChanged(List<HighscoreElement> list);
     public static event OnHighscoreListChanged onHighscoreListChanged;
+
+    public delegate void OnHighscoresLoaded(int highscore);
+    public static event OnHighscoresLoaded onHighscoresLoaded;
     
     [SerializeField] private int maxCount = 10;
     [SerializeField] private string filename;
     private List<HighscoreElement> highscoreList = new();
+    private int highestScore;
 
     private void Start()
     {
@@ -25,7 +30,8 @@ public class HighscoreHandler : MonoBehaviour
     private void LoadHighscores()
     {
         highscoreList = FileHandler.ReadListFromJSON<HighscoreElement>(filename);
-
+        highestScore = highscoreList[0].points;
+        
         while (highscoreList.Count > maxCount)
         {
             highscoreList.RemoveAt(maxCount);
@@ -59,5 +65,14 @@ public class HighscoreHandler : MonoBehaviour
             }
 
         }
+    }
+
+    // Not sure if this should be a void
+    // Not sure which of two to return either.
+    public int GetHighestScoreAvailable()
+    {
+        HighestScore = highestScore;
+        onHighscoresLoaded?.Invoke(highestScore);
+        return highestScore;
     }
 }

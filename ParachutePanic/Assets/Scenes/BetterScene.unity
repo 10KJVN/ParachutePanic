@@ -228,6 +228,7 @@ MonoBehaviour:
   panel: {fileID: 894778845}
   highscoreUIElementPrefab: {fileID: 2172935453190997073, guid: c5bc5fb1bd3607848a5e77e0277f510e, type: 3}
   elementWrapper: {fileID: 894778844}
+  persistentHighscoreText: {fileID: 5293213499052457536}
 --- !u!114 &267454896
 MonoBehaviour:
   m_ObjectHideFlags: 0

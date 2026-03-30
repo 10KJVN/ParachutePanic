@@ -12,16 +12,19 @@ public class HighscoreUI : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject highscoreUIElementPrefab;
     [SerializeField] private Transform elementWrapper;
+    [SerializeField] private TMP_Text persistentHighscoreText;
     private List<GameObject> uiElements = new();
 
     private void OnEnable()
     {
         HighscoreHandler.onHighscoreListChanged += UpdateUI;
+        HighscoreHandler.onHighscoresLoaded += DisplayHighscore;
     }
 
     private void OnDisable()
     {
         HighscoreHandler.onHighscoreListChanged -= UpdateUI;
+        HighscoreHandler.onHighscoresLoaded -= DisplayHighscore;
     }
 
     public void ShowPanel()
@@ -57,6 +60,12 @@ public class HighscoreUI : MonoBehaviour
                 texts[1].text = element.points.ToString();
             }
         }
+        
+        //persistentHighscoreText.text = HighscoreHandler.
+    }
 
+    private void DisplayHighscore(int highscore)
+    {
+        persistentHighscoreText.text = highscore.ToString();
     }
 }
