@@ -5,6 +5,7 @@ using System.Collections.Generic;
 /// Custom spawner Component class:
 /// This spawns in game objects positioned randomly.
 /// </summary>
+
 public class Spawner : MonoBehaviour
 {
     // 2. Prefab for spawning

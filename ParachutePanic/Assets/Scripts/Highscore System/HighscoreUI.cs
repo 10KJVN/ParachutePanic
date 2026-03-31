@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 
 /// <summary>
-/// This class manages purely the HighscoreUI
-/// And listens to when to open, close or update it.
+/// This class purely manages the HighscoreUI
+/// And listens to: when to open, close or update it.
 /// </summary>
 
 public class HighscoreUI : MonoBehaviour
@@ -60,8 +60,6 @@ public class HighscoreUI : MonoBehaviour
                 texts[1].text = element.points.ToString();
             }
         }
-        
-        //persistentHighscoreText.text = HighscoreHandler.
     }
 
     private void DisplayHighscore(int highscore)

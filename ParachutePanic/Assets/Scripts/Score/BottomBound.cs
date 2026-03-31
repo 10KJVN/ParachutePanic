@@ -7,12 +7,11 @@ using UnityEngine;
  
 public class BottomBound : MonoBehaviour
 {
-    private ScoreManager scoreManager;
-    private ScoreHandler scoreSystem;
+    [SerializeField] private ScoreHandler scoreSystem;
 
     private void Start()
     {
-        scoreSystem = GameObject.Find("Managers").GetComponent<ScoreHandler>();
+        scoreSystem = scoreSystem.GetComponent<ScoreHandler>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)

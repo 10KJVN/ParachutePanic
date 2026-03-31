@@ -1940,6 +1940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment
       objectReference: {fileID: 0}
+    - target: {fileID: 5496172421419499335, guid: 6aff8582359023e4c8d9a6cdedd087e4, type: 3}
+      propertyPath: scoreSystem
+      value: 
+      objectReference: {fileID: 267454899}
     - target: {fileID: 6273923371675041947, guid: 6aff8582359023e4c8d9a6cdedd087e4, type: 3}
       propertyPath: m_Camera
       value: 

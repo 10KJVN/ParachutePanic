@@ -1,5 +1,10 @@
 using System;
 
+/// <summary>
+/// A serializable data container class.
+/// Holds the players' name & points per entry.
+/// </summary>
+
 [Serializable]
 public class HighscoreElement
 {

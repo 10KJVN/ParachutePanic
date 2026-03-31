@@ -1,5 +1,10 @@
 ﻿using System;
 
+/// <summary>
+/// Serializable 'data container' for an entry,
+/// Test out for yourself in the jsonScene
+/// </summary>
+
 [Serializable]
 public class InputEntry
 {
