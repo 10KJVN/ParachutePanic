@@ -8,10 +8,12 @@ using UnityEngine;
 public class BottomBound : MonoBehaviour
 {
     [SerializeField] private ScoreHandler scoreSystem;
+    private int missEnemyPoints;
 
     private void Start()
     {
         scoreSystem = scoreSystem.GetComponent<ScoreHandler>();
+        missEnemyPoints = 3;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -20,7 +22,7 @@ public class BottomBound : MonoBehaviour
         if (other.collider.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.collider.gameObject);
-            scoreSystem.IncrementScore( 3 );
+            scoreSystem.IncrementScore(missEnemyPoints);
         }
     }
 }
