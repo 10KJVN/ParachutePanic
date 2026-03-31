@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -29,7 +30,15 @@ public class HighscoreHandler : MonoBehaviour
     private void LoadHighscores()
     {
         highscoreList = FileHandler.ReadListFromJSON<HighscoreElement>(filename);
-        highestScore = highscoreList[0].points;
+
+        if (highscoreList == null || !highscoreList.Any())
+        {
+            Debug.Log("The list is either null or empty.");
+            return;
+        }
+        
+        Debug.Log("The list contains elements.");
+        highestScore = highscoreList![0].points;
         
         while (highscoreList.Count > maxCount)
         {
@@ -68,7 +77,7 @@ public class HighscoreHandler : MonoBehaviour
     
     public void GetHighestScoreAvailable()
     {
-        Debug.Log($"The highest score found is: " + highestScore);
+        Debug.Log($"Highest score found: " + highestScore);
         onHighscoresLoaded?.Invoke(highestScore);
     }
 }
