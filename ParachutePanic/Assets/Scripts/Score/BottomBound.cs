@@ -8,7 +8,7 @@ using UnityEngine;
 public class BottomBound : MonoBehaviour
 {
     [SerializeField] private ScoreHandler scoreSystem;
-    private int missEnemyPoints;
+    [SerializeField] private int missEnemyPoints;
 
     private void Start()
     {
