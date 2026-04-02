@@ -13,7 +13,7 @@ public class HighscoreUI : MonoBehaviour
     [SerializeField] private GameObject highscoreUIElementPrefab;
     [SerializeField] private Transform elementWrapper;
     [SerializeField] private TMP_Text persistentHighscoreText;
-    private List<GameObject> uiElements = new();
+    private readonly List<GameObject> uiElements = new();
 
     private void OnEnable()
     {

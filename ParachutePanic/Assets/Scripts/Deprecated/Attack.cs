@@ -15,7 +15,7 @@ public class Attack : MonoBehaviour
     private void Start()
     {
         //ScoreManager = GetComponent<PointManager>();
-        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        scoreManager = scoreManager.GetComponent<ScoreManager>();
     }
 
     private void Update()

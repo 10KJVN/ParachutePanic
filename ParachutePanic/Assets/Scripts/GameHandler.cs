@@ -46,7 +46,7 @@ public class GameHandler : MonoBehaviour
             highscoreMenu.SetActive(true);
         }
 
-        // A UnityEvent on the enter button of the EnterHighscore_Widget.
+        // A UnityEvent on the enter button of the EnterHighscoreWidget.
         // That's how it communicates to call -> StopGame() function.
     }
     
