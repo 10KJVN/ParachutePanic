@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 48235693}
   - component: {fileID: 48235697}
   - component: {fileID: 48235700}
-  - component: {fileID: 48235695}
+  - component: {fileID: 48235701}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -165,6 +165,7 @@ MonoBehaviour:
   panel: {fileID: 35825871}
   highscoreUIElementPrefab: {fileID: 2172935453190997073, guid: c5bc5fb1bd3607848a5e77e0277f510e, type: 3}
   elementWrapper: {fileID: 1634516972}
+  persistentHighscoreText: {fileID: 0}
 --- !u!4 &48235694
 Transform:
   m_ObjectHideFlags: 0
@@ -180,23 +181,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &48235695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48235692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b785f618163eaf84dab3a7e9764d75ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScore: 0
-  scoreText: {fileID: 452805538}
-  highScoreText: {fileID: 275858016}
-  finalScoreText: {fileID: 1579949408}
-  finalHighScoreText: {fileID: 1463940984}
 --- !u!114 &48235696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,13 +202,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48235692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83a77c14d62a45cebb0e828b91668b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highscoreMenu: {fileID: 35825871}
-  scoreManager: {fileID: 48235695}
+  scoreSystem: {fileID: 48235701}
   highscoreHandler: {fileID: 48235696}
   inputHandler: {fileID: 48235700}
   livesManager: {fileID: 0}
@@ -235,13 +219,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48235692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2916fd16d41b3654c955692e76287a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameInput: {fileID: 831351239}
   filename: another.json
+--- !u!114 &48235701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48235692}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ec7bab00a04715a2dd4c7a2e2c8fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &49787136
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -450, y: -40}
+  m_AnchoredPosition: {x: -667, y: -40}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &452805537
@@ -715,7 +712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: enter yourself in the inspector'
+  m_text: IN THIS SCENE YOU CAN READ THE VALUES WITHIN A .JSON FILE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -3454,6 +3451,10 @@ PrefabInstance:
     - target: {fileID: 1315478693673242298, guid: eb7e5ba07e59703449350f798f4b15eb, type: 3}
       propertyPath: m_Name
       value: EnterHighScore_Widget
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315478693673242298, guid: eb7e5ba07e59703449350f798f4b15eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3090714406481978388, guid: eb7e5ba07e59703449350f798f4b15eb, type: 3}
       propertyPath: m_Pivot.x
