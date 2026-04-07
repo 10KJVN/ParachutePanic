@@ -6,8 +6,8 @@ using TMPro;
 public class GameHandler : MonoBehaviour
 {
     public GameObject highscoreMenu;
-    public static Action OnGameStart;
     public static Action OnGameEnd;
+    public static bool isGamePaused = false;
     
     // [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private ScoreHandler scoreSystem;
