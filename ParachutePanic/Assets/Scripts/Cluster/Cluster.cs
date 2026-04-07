@@ -55,6 +55,9 @@ public class Cluster : MonoBehaviour
 
     private void Update()
     {
+        if (GameHandler.isGamePaused)
+            return;
+        
         transform.Translate( Vector2.right * horizontalMoveSpeed * Time.deltaTime );
         transform.Translate( Vector2.down * verticalMoveSpeed * Time.deltaTime );
         UpdateClusterPosition();

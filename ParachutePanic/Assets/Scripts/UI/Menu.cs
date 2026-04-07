@@ -37,6 +37,7 @@ public class Menu : MonoBehaviour
         if ( !pauseMenu.activeInHierarchy )
         {
             pauseMenu.SetActive( true );
+            GameHandler.isGamePaused = true;
             Time.timeScale = 0f;
             
             EventSystem.current.SetSelectedGameObject( null );
@@ -45,6 +46,7 @@ public class Menu : MonoBehaviour
         else
         {
             pauseMenu.SetActive( false );
+            GameHandler.isGamePaused = false;
             Time.timeScale = 1f;
         }
     }
