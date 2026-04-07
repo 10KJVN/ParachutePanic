@@ -1762,6 +1762,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 210064067735850567, guid: b1aa5c07db1caf941a88298d02c62cc4, type: 3}
+      propertyPath: m_text
+      value: "final Score: \nlook top left"
+      objectReference: {fileID: 0}
+    - target: {fileID: 210064067735850567, guid: b1aa5c07db1caf941a88298d02c62cc4, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 9e1998aedf4c54040a80b4f3c05d4c81, type: 2}
