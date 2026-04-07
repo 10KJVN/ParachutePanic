@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4793682900454459453}
   - component: {fileID: 190123476177908337}
   - component: {fileID: 2581366252481141897}
+  - component: {fileID: 5696618314537762462}
   m_Layer: 0
   m_Name: BetterObstacle
   m_TagString: Enemy
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 1.25
-  scoreManager: {fileID: 0}
+  scoreSystem: {fileID: 0}
 --- !u!114 &2581366252481141897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,3 +239,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4793682900454459453}
+--- !u!114 &5696618314537762462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171055760242494298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8768b28f6490bdc4b81a435b9e41a641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clusterSound: {fileID: 8300000, guid: 564bbfb95a24ad54492080821b5849ac, type: 3}

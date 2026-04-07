@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8183349642491099760}
   - component: {fileID: 2825565347537561347}
   - component: {fileID: 8358777300196651168}
+  - component: {fileID: 7363245133170631995}
   m_Layer: 0
   m_Name: BetterParachute
   m_TagString: Parachute
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSpeed: 1
-  scoreManager: {fileID: 0}
+  scoreSystem: {fileID: 0}
 --- !u!114 &8358777300196651168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,3 +239,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8183349642491099760}
+--- !u!114 &7363245133170631995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9065254647769691402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8768b28f6490bdc4b81a435b9e41a641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clusterSound: {fileID: 8300000, guid: abf5abed7c6e05b46858c5e59b24a66f, type: 3}

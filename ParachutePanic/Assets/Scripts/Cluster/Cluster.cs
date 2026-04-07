@@ -11,8 +11,9 @@ public class Cluster : MonoBehaviour
 {
     [Tooltip("Movement Variable")]
     [SerializeField] private float bounceSpeed;
-    [Tooltip("Auto assigned, serialized to verify")]
+    
     [SerializeField] private ScoreHandler scoreSystem;
+    private ClusterSounds hitImpactSFX;
 
     private float horizontalMoveSpeed;
     private float verticalMoveSpeed;
@@ -42,6 +43,7 @@ public class Cluster : MonoBehaviour
     private void Start()
     {
         scoreSystem = GameObject.Find( "Managers" ).GetComponent<ScoreHandler>();
+        hitImpactSFX = GetComponent<ClusterSounds>();
         horizontalMoveSpeed = posX + speedX;
         verticalMoveSpeed = posY + speedY;
         
@@ -74,6 +76,11 @@ public class Cluster : MonoBehaviour
         
         // If Enemy missed player, score +2
         // Score Calculation -> BottomBound.cs
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            hitImpactSFX.DamageSound();
+        }
     }
 
     private int CalculatePosition( int currentPos, int velocity )
